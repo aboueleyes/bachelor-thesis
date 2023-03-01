@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{subfig}
+\usepackage{amsthm}
 \usepackage{array}
 % \usepackage{xtab}
 \usepackage{multirow}
@@ -61,6 +62,9 @@
 \includefigWSC{#1}{#2.eps}{#3}{#4}{#5}
 }
 
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
 
 \ifpdf
 \pdfinfo {
@@ -105,8 +109,8 @@
 % \include{future_work}
 % \include{appendix}
 
-\bibliographystyle{plain}
-% \bibliography{bachelor}
 % \addcontentsline{toc}{chapter}{References}
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}
