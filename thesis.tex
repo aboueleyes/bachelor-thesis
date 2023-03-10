@@ -25,64 +25,65 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{ifpdf}
+\usepackage[utf8]{inputenc}
 % \setlength{\parindent}{0pt}
 
-\newcommand{\submissionDay}{XX}
-\newcommand{\submissionMonth}{July}
-\newcommand{\submissionYear}{20XX}
-\newcommand{\submissionDate}{\submissionDay~\submissionMonth,~\submissionYear}
-\newcommand{\typeOfThesis}{Bachelor Thesis}
-
-\newcommand{\titleOfThesisOne}{Bachelor Thesis Title}
-
-\newcommand{\authorOfThesis}{Author}
-\newcommand{\supervisorOne}{Sup 1}
-\newcommand{\supervisorTwo}{Sup 2}
-\newcommand{\supervisorThree}{Sup 3}
-
-\newcommand{\includefig}[4]{
-    \begin{figure}[ht]
-     \centering
-      \includegraphics[width=#1\textwidth]{images/#2}
-      \caption{#3}
-      \label{#4}
-    \end{figure}
-}
-
-\newcommand{\includefigWSC}[5]{
-    \begin{figure}[ht]
-     \centering
-      \includegraphics[width=#1\textwidth]{images/#2}
-      \caption[#3]{#4}
-      \label{#5}
-    \end{figure}
-}
-
-\newcommand{\includeeps}[4]{
-\includefig{#1}{#2.eps}{#3}{#4}
-}
-
-\newcommand{\includeepsWSC}[5]{
-\includefigWSC{#1}{#2.eps}{#3}{#4}{#5}
-}
-
+% \newcommand{\submissionDay}{XX}
+% \newcommand{\submissionMonth}{July}
+% \newcommand{\submissionYear}{20XX}
+% \newcommand{\submissionDate}{\submissionDay~\submissionMonth,~\submissionYear}
+% \newcommand{\typeOfThesis}{Bachelor Thesis}
+%
+% \newcommand{\titleOfThesisOne}{Bachelor Thesis Title}
+%
+% \newcommand{\authorOfThesis}{Author}
+% \newcommand{\supervisorOne}{Sup 1}
+% \newcommand{\supervisorTwo}{Sup 2}
+% \newcommand{\supervisorThree}{Sup 3}
+%
+% \newcommand{\includefig}[4]{
+%     \begin{figure}[ht]
+%      \centering
+%       \includegraphics[width=#1\textwidth]{images/#2}
+%       \caption{#3}
+%       \label{#4}
+%     \end{figure}
+% }
+%
+% \newcommand{\includefigWSC}[5]{
+%     \begin{figure}[ht]
+%      \centering
+%       \includegraphics[width=#1\textwidth]{images/#2}
+%       \caption[#3]{#4}
+%       \label{#5}
+%     \end{figure}
+% }
+%
+% \newcommand{\includeeps}[4]{
+% \includefig{#1}{#2.eps}{#3}{#4}
+% }
+%
+% \newcommand{\includeepsWSC}[5]{
+% \includefigWSC{#1}{#2.eps}{#3}{#4}{#5}
+% }
+%
 \theoremstyle{definition}
 \newtheorem{exmp}{Example}[section]
 
 
-\ifpdf
-\pdfinfo {
-	/Author (\authorOfThesis)
-	/Title (\titleOfThesisOne)
-	/Subject (\typeOfThesis)
-	/Keywords ()
-	/CreationDate (D:20090707085533)
-}
-\fi
+% \ifpdf
+% \pdfinfo {
+% 	/Author (\authorOfThesis)
+% 	/Title (\titleOfThesisOne)
+% 	/Subject (\typeOfThesis)
+% 	/Keywords ()
+% 	/CreationDate (D:20090707085533)
+% }
+% \fi
 
 \begin{document}
 % \overfullrule=5pt
-\pagestyle{plain}
+%\pagestyle{plain}
 \pagenumbering{Roman}
 
 % \include{GUC_TitlePage}
@@ -110,7 +111,6 @@
 
 % \include{conclusion}
 \include{chapters/ch1}
-\include{chapters/ch2}
 % \include{future_work}
 % \include{appendix}
 
