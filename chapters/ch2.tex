@@ -134,9 +134,12 @@ Shoham shows how Allen' Ontology have a problem defining the properties as they 
 Also he shows that Allen's Ontology introduces unnecessary complexity just because Allen went for using intervals instead of time points.
 
 Shoham also the distinction between \textit{properties}, \textit{events}, and \textit{processes} is unnecessary and it's not very useful.
+For example, much of Allen's discussion of event causation, ECAUSE, should apply to pairs of properties and mixed pairs of properties and events. Furthermore, this distinction is insufficient to express some other properties of propositions, such as that if a proposition holds over two overlapping intervals then it holds over
+the union of the two intervals, though not necessarily vice versa (``I ran for more than two mile'').
 
 
 \subsection{Shoham's Interval Logic}
+Shoham has proposed the use of \textit{points} rather than \textit{intervals} as the basic temporal element and defines an interval as a pair of points.
 \subsubsection{Syntax}
 \begin{itemize}
 	\item Given $TC$ a set of time points symbols,
@@ -202,6 +205,12 @@ temporal term, then
 \[
 	MVA(trm) = M_3(f)(MVA(trm_1), \dots, MVA(trm_n))
 \]
+
+A more comprehensive ontology can be created by defining how the truth of a statement over a specific time interval is related to its truth over other related intervals.
+The ontology includes several classes of temporal entities, such as \textit{Downward-hereditary} (which holds true over all subintervals), \textit{Upward-hereditary} (which holds true over all proper subintervals), \textit{Liquid} (which is both upward- and downward-hereditary), \textit{Concatenable} (which holds true over the union of two consecutive intervals),
+\textit{Gestalt} (which never holds true over two intervals, one of which contains the other), and \textit{Solid} (which never holds true over two overlapping intervals).
+
+
 
 \section{Galton and Allen's Temporal Logic}
 In his paper \cite{galton2004}, Galton shows that Allen's Ontology is unsuitable for representing facts and continuous change.
