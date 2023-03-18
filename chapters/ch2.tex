@@ -213,7 +213,8 @@ The ontology includes several classes of temporal entities, such as \textit{Down
 
 
 \section{Galton and Allen's Temporal Logic}
-In his paper \cite{galton2004}, Galton shows that Allen's Ontology is unsuitable for representing facts and continuous change.
+In his paper \cite{galton2004}, Galton has proposed a revision of Allen's temporal logic intended to represent continuous change.
+His argument is that Allen's theory stands inadequate for representing continuous change because it requires the notion of \textit{instant} which is not captured by the notion of \textit{interval structure}.
 
 \subsection{Properties and their negations}
 In Allen's notation, the formula $\text{HOLDS}(p, T)$ says that the property $p$ holds over the interval $T$.
@@ -225,9 +226,39 @@ Allen follows this with a more complicated axiom:
 
 \begin{equation}
 	\text{HOLDS}(p, T) \leftrightarrow (\forall t) [\text{IN}(t, T) \to (\exists s)[\text{IN}(t, T) \land \text{HOLDS}(p, s)]].
+	\label{eq:axiom1}
 \end{equation}
 And he defines the negation of a property as follows:
 \begin{equation}
 	\text{HOLDS}(\text{not}(p), T) \leftrightarrow \neg (\forall t) [\text{IN}(t, T) \to \neg \text{HOLDS}(p, t)].
+	\label{eq:axiom2}
 \end{equation}
 Allen notes that HOLDS(not($p$, $T$)) implies $\neg$ HOLDS($p$, $T$), but not conversely, and that HOLDS(not(not($p$)), $T$) is equivalent to HOLDS($p$, $T$).
+
+Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to difficulties when dealing with continuous change.
+
+\begin{exmp} \textit{property-negation} does not correctly capture what we understand by the negation of a property.
+
+	Assume that \textit{property-negation} does exactly capture our intuitive understanding of the negation of a property. In that case, if we let $p$ stand for ``$X \  is \  at \ P$''
+	then $not(p)$ must stand for ``$X \  is \  not \  at \ P$''.
+
+	No suppose that $X$ is in continuous motion throughout the interval $T$. This means that there is no subinterval of $T$ during which $X$ is at $P$;
+	for if there were such a subinterval, then $X$ would be at rest throughout that subinterval, and hence not continuously moving throughout $T$.
+
+	\begin{equation}
+		\neg (\exists t)[\text{IN}(t, T) \land \text{HOLDS}(p, t)]
+	\end{equation}
+	which is equivalent to
+	\begin{equation}
+		(\forall t)[\text{IN}(t, T) \to \neg \text{HOLDS}(p, t)]
+	\end{equation}
+	and hence by (\ref{eq:axiom2}) is equivalent to
+	\begin{equation}
+		\text{HOLDS}(\text{not}(p), T)
+	\end{equation}
+	By our assumption, this means that $X$ is not at $P$ throughout $T$. Since $P$ can be any point in space, this means that $X$ is never at any position at all at any time during $T$, which is absurd.
+
+	The consequence of this is that in Allen's system these properties are not really distinct after all; that is, Allen's system cannot distinguish between a body's being in a certain position, and its being at rest there.
+\end{exmp}
+
+Galton gave more examples motivating his revision of Allen's temporal logic adding the notion of \textit{instant} to the theory to address the mentioned difficulties.
