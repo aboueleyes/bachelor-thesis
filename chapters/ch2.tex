@@ -58,24 +58,24 @@ In this framework, time is modeled as \textit{linear} and \textit{infinite}, the
 \begin{exmp} Allen's Interval Algebra
 
 	\begin{enumerate}
-		\item DURING($t_1$, $t_2$) time interval $t_1$ is fully contained within time interval $t_2$.
+		\item \textsc{During}($t_1$, $t_2$) time interval $t_1$ is fully contained within time interval $t_2$.
 
-		\item STARTS($t_1$, $t_2$) time interval $t_1$ shares a starting point with time interval $t_2$ but ends before $t_2$.
+		\item \textsc{Starts}($t_1$, $t_2$) time interval $t_1$ shares a starting point with time interval $t_2$ but ends before $t_2$.
 
-		\item FINISHES($t_1$, $t_2$) time interval $t_1$ shares the same end as time interval $t_2$ but starts after $t_2$.
+		\item \textsc{Finishes}($t_1$, $t_2$) time interval $t_1$ shares the same end as time interval $t_2$ but starts after $t_2$.
 
-		\item IN($t_1$, $t_2$) $\iff$ (DURING($t_1$, $t_2$) $\lor$ STARTS($t_1$, $t_2$) $\lor$ FINISHES($t_1$, $t_2$)).
+		\item \textsc{In}($t_1$, $t_2$) $\iff$ (\textsc{During}($t_1$, $t_2$) $\lor$ \textsc{Starts}($t_1$, $t_2$) $\lor$ \textsc{Finishes}($t_1$, $t_2$)).
 
-		\item HOLDS(\(\phi\), \(t\)) is true iff \(\phi\) holds during \(t\).
+		\item \textsc{Holds}(\(\phi\), \(t\)) is true iff \(\phi\) holds during \(t\).
 	\end{enumerate}
 
 
 
 	\begin{center}
-		HOLDS(\(\phi\), \(T\)) \(\iff ( \forall t \) IN $ (t,T) \implies $ HOLDS($\phi, t$)).
+		\textsc{Holds}(\(\phi\), \(T\)) \(\iff ( \forall t \) \textsc{In} $ (t,T) \implies $ \textsc{Holds}($\phi, t$)).
 	\end{center}
 
-	This definition states that HOLDS($\phi$, $T$) is true iff $\phi$ holds during every subinterval $t$ of $T$. In other words, $\phi$ holds throughout the entire interval $T$.
+	This definition states that \textsc{Holds}($\phi$, $T$) is true iff $\phi$ holds during every subinterval $t$ of $T$. In other words, $\phi$ holds throughout the entire interval $T$.
 \end{exmp}
 
 \begin{exmp} Complex logical expressions
@@ -85,12 +85,12 @@ In this framework, time is modeled as \textit{linear} and \textit{infinite}, the
 	$\&, \lor, \sim, \forall$ and $\exists$ respectively.
 	Conjunction moves through the HOLDS predicate freely:
 	\begin{equation}
-		\text{HOLDS}(\text{and}(p, q), t) \iff \text{HOLDS}(p, t) \  \& \  \text{HOLDS}(q, t)
+		\textsc{Holds}(\textsc{And}(p, q), t) \iff \textsc{Holds}(p, t) \  \& \  \textsc{Holds}(q, t)
 	\end{equation}
 
 	Negation is defined as follows:
 	\begin{equation}
-		\text{HOLDS}(\text{not}(p), T) \iff (\forall t.\text{IN}(t, T) \implies \sim \text{HOLDS}(p, t))
+		\textsc{Holds}(\textsc{Not}(p), T) \iff (\forall t.\text{In}(t, T) \implies \sim \text{Holds}(p, t))
 	\end{equation}
 \end{exmp}
 
@@ -110,18 +110,18 @@ One way to distinguish between \textit{events} and \textit{processes} is that on
 the number of times a process occurs.
 
 
-The predicate OCCUR takes an event and a time interval and is true if the event happens over the time interval $t$ and there is no subinterval of $t$
+The predicate \textsc{Occur} takes an event and a time interval and is true if the event happens over the time interval $t$ and there is no subinterval of $t$
 over which the event occurs.
 
 \begin{center}
-	OCCUR($e$, $t$) $\land$ IN($t^\prime$, $t$) $\implies$ \(\lnot\) OCCUR($e$, $t^\prime$).
+	\textsc{Occur}($e$, $t$) $\land$ \textsc{In}($t^\prime$, $t$) $\implies$ \(\lnot\) \textsc{Occur}($e$, $t^\prime$).
 \end{center}
 
 Another way is to consider the characteristics of the set of temporal intervals that they hold or occur over.
 Consider the \textit{process} ``I am walking'' over the Interval $I$. Unlike \textit{events}, this process might be occurring over subintervals of $I$ however a \textit{property} must be holding over every subinterval of $I$.
 
 
-If a process $p$ took place over interval $t$ is denoted by the formula OCCURRING$(p,t)$.
+If a process $p$ took place over interval $t$ is denoted by the formula \textsc{Occurring}$(p,t)$.
 
 
 As we illustrated, a process occurring over an interval $T$, must be occurring over at least one subinterval of $T$.
@@ -178,10 +178,10 @@ Again, we assume the usual definition of $\lor, \exists, \equiv, \supset$ and so
 
 \begin{exmp} Here's an example sentences.
 	\begin{equation}
-		\text{TRUE}(t_1, t_2, \text{COLOR}(\text{HOUSE17}, \text{RED})))
+		\textsc{True}(t_1, t_2, \textsc{Color}(\textsc{House17}, \textsc{Red})))
 	\end{equation}
 	\begin{equation}
-		\exists u \ \text{TRUE}(t_3, t_4, \text{ON}(u,B))
+		\exists u \ \textsc{True}(t_3, t_4, \textsc{On}(u,B))
 	\end{equation}
 \end{exmp}
 
@@ -207,9 +207,18 @@ temporal term, then
 \]
 
 A more comprehensive ontology can be created by defining how the truth of a statement over a specific time interval is related to its truth over other related intervals.
-The ontology includes several classes of temporal entities, such as \textit{Downward-hereditary} (which holds true over all subintervals), \textit{Upward-hereditary} (which holds true over all proper subintervals), \textit{Liquid} (which is both upward- and downward-hereditary), \textit{Concatenable} (which holds true over the union of two consecutive intervals),
+The ontology includes several classes of temporal entities, such as \textit{Downward-hereditary} (which holds true over all subintervals), \textit{Upward-hereditary} (which holds true over all proper subintervals of some nonpoint interval, also holds over the nonpoint interval itself),
+\textit{Liquid} (which is both upward- and downward-hereditary), \textit{Concatenable} (which holds true over the union of two consecutive intervals),
 \textit{Gestalt} (which never holds true over two intervals, one of which contains the other), and \textit{Solid} (which never holds true over two overlapping intervals).
 
+\begin{exmp} Examples
+	\begin{enumerate}
+		\item  ``The robot travelled less than two miles.'' is downward-hereditary.
+		\item  ``The robot travelled at a speed of two miles per hour'' is upward-hereditary.
+		\item ``The robot started and ended at the same place'' and ``The robot travelled an even number of miles'' are concatenable.
+		\item ``The robot executed the NAVIGATE procedure (from start to finish)`` is solid.
+	\end{enumerate}
+\end{exmp}
 
 
 \section{Galton and Allen's Temporal Logic}
@@ -220,20 +229,20 @@ His argument is that Allen's theory stands inadequate for representing continuou
 In Allen's notation, the formula $\text{HOLDS}(p, T)$ says that the property $p$ holds over the interval $T$.
 Allen introduces the axiom
 \begin{equation}
-	\text{HOLDS}(p, T) \leftrightarrow (\forall t) [\text{IN}(t, T) \to \text{HOLDS}(p, t)].
+	\textsc{Holds}(p, T) \leftrightarrow (\forall t) [\textsc{In}(t, T) \to \textsc{Holds}(p, t)].
 \end{equation}
 Allen follows this with a more complicated axiom:
 
 \begin{equation}
-	\text{HOLDS}(p, T) \leftrightarrow (\forall t) [\text{IN}(t, T) \to (\exists s)[\text{IN}(t, T) \land \text{HOLDS}(p, s)]].
+	\textsc{Holds}(p, T) \leftrightarrow (\forall t) [\textsc{In}(t, T) \to (\exists s)[\textsc{In}(t, T) \land \textsc{Holds}(p, s)]].
 	\label{eq:axiom1}
 \end{equation}
 And he defines the negation of a property as follows:
 \begin{equation}
-	\text{HOLDS}(\text{not}(p), T) \leftrightarrow \neg (\forall t) [\text{IN}(t, T) \to \neg \text{HOLDS}(p, t)].
+	\textsc{Holds}(\textsc{Not}(p), T) \leftrightarrow \neg (\forall t) [\textsc{In}(t, T) \to \neg \textsc{Holds}(p, t)].
 	\label{eq:axiom2}
 \end{equation}
-Allen notes that HOLDS(not($p$, $T$)) implies $\neg$ HOLDS($p$, $T$), but not conversely, and that HOLDS(not(not($p$)), $T$) is equivalent to HOLDS($p$, $T$).
+Allen notes that \textsc{Holds}(\textsc{Not}($p$, $T$)) implies $\neg$ \textsc{Holds}($p$, $T$), but not conversely, and that \textsc{Holds}(\textsc{Not}(\textsc{Not}($p$)), $T$) is equivalent to \textsc{Holds}($p$, $T$).
 
 Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to difficulties when dealing with continuous change.
 
@@ -246,15 +255,15 @@ Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to dif
 	for if there were such a subinterval, then $X$ would be at rest throughout that subinterval, and hence not continuously moving throughout $T$.
 
 	\begin{equation}
-		\neg (\exists t)[\text{IN}(t, T) \land \text{HOLDS}(p, t)]
+		\neg (\exists t)[\textsc{In}(t, T) \land \textsc{Holds}(p, t)]
 	\end{equation}
 	which is equivalent to
 	\begin{equation}
-		(\forall t)[\text{IN}(t, T) \to \neg \text{HOLDS}(p, t)]
+		(\forall t)[\textsc{In}(t, T) \to \neg \textsc{Holds}(p, t)]
 	\end{equation}
 	and hence by (\ref{eq:axiom2}) is equivalent to
 	\begin{equation}
-		\text{HOLDS}(\text{not}(p), T)
+		\textsc{Holds}(\textsc{Not}(p), T)
 	\end{equation}
 	By our assumption, this means that $X$ is not at $P$ throughout $T$. Since $P$ can be any point in space, this means that $X$ is never at any position at all at any time during $T$, which is absurd.
 
@@ -262,3 +271,80 @@ Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to dif
 \end{exmp}
 
 Galton gave more examples motivating his revision of Allen's temporal logic adding the notion of \textit{instant} to the theory to address the mentioned difficulties.
+
+\subsection{Allen's interval logic needs instants}
+Allen's argument for excluding \textit{instants} from his temporal ontology is, suppose we have two intervals $S$ and $T$ such that
+\[
+	\textsc{Meet}(S, T) \  \& \  \textsc{Holds}(p, S) \ \&  \ \textsc{Holds}(\textsc{not}(p), T)
+\]
+i.e $S$ and $T$ are contiguous intervals such that some proposition $p$ holds over $S$ and its negation holds over $T$. Then if we allow the existence of an instant $I$ at the point where $S$ and $T$ meet, one of the following cases must occur
+\begin{enumerate}
+	\item  $I$ is part of both $S$ and $T$.\label{item:1}
+	\item  $I$ is part of $S$ but not $T$.\label{item:2}
+	\item  $I$ is part of $T$ but not $S$. \label{item:3}
+	\item  $I$ is part of neither $S$ nor $T$. \label{item:4}
+\end{enumerate}
+In case \ref{item:1}, the proposition $p$ holds over $I$ and its negation holds over $I$, which is absurd;
+in case \ref{item:2}, $p$ would be neither true nor false at $I$, which is absurd;
+while as for the remaining two cases, since there's nothing to choose between them, any decision either way must be artificial. So, Allen concluded, we ought to banish instants altogether.
+
+Galton states that the trouble is that Allen assumes that the only way we can embrace both instants and
+intervals is by assuming that intervals are made up out of instants, that instants are as it were the atoms out if which intervals are made.
+Galtin says the difficulty in the choice between \ref{item:1} to \ref{item:4} is because it has no relevance to real questions about time.
+
+% Galton introduces  WITHIN$(I, T)$ that the instant $U$ falls within the interval $T$, and LIMITS$(I, t)$ to mean that $I$ limits $T$.
+%
+% He defines $ I = S*T$ as the instant $I$ is given as the meeting point of two contiguous intervals $S$ and $T$.
+% He defines a proposition to hold over an instant $I$ as follows:
+%
+% $p$ holds at $I$ iff either neg($p$) holds throughout $S$ and throughout $T$ but not throughout JOIN$(S,T),$ where $I= S*T$ or $p$ holds throughout $T$ where $I$ falls within or limits $T$.
+%
+% Where 
+% neg$(p)$ holds throughout $T$ iff it is not the case that $p$ holds throughout any subinterval of $T$.
+%
+% for on this definition, if $S$ meets $T$, it cannot happen that neg$(p)$ holds
+% throughout $S$ and throughout $T$ but not throughout JOIN$(S, T)$. What we want,
+% of course, is a definition which, once "p holds at I" is defined, will yield the
+% equivalence:
+% neg $(p)$ holds at $I$ iff $p$ does not hold at $I$.
+
+\subsection{States of position and states of motion}
+Galton states that Allen's system can all be traced to the assumption, implicit throughout Allen's
+work though never explicitly stated, that all properties should receive a
+uniform treatment with respect to the logic of their temporal incidence. Our
+starting point will therefore be to distinguish sharply between two kinds of
+properties, having different temporal logics; I shall call these properties \textit{states
+	of position} and \textit{states of motion}.
+
+States of position can hold at isolated instants; and if a state of position
+holds throughout an interval, then it must hold at the limits of that interval.
+Examples: a body's being in a particular position, or moving at a particular
+speed or in a particular direction. More generally, any state which consists of
+some continuously variable quantity's assuming a particular value is a state of
+position.
+
+States of motion cannot hold at isolated instants: if a state of motion holds
+at an instant then it must hold throughout some interval within which that
+instant falls. Examples: a body's being at rest or in motion, and more generally
+any state of affairs which consists of some continuously variable quantity's
+either remaining fixed or undergoing a change of value.
+
+He then introduces
+\begin{itemize}
+	\item  \textsc{Holds-On}$(p, T)$ for a property $p$ to hold over an interval $T$.
+	\item \textsc{Holds-In}$(p, T)$ for a property $p$ to during an interval $I$ (i.e. at some time during an interval not necessarily at the whole interval).
+	\item \textsc{Holds-At}$(p, I)$ for a property $p$ to hold at an instant $I$.
+\end{itemize}
+
+For a property to hold during
+an interval to be that there is at least one instant within the interval at which
+the property holds,
+\[
+	\textsc{Holds-On}(p, T) \iff (\exists i)[\textsc{Within}(i, T) \  \& \ \textsc{Holds-At}(p, i)]
+\]
+
+and similarly, for a property to hold throughout an interval is for it to hold at
+every instant within that interval:
+\[
+	\textsc{Holds-On}(p, T) \iff (\forall i)[\textsc{Within}(i, T) \  \to \textsc{Holds-At}(p, i)]
+\]
