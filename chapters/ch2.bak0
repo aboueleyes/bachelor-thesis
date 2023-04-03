@@ -361,7 +361,7 @@ Their formalism incorporates each of these:
 where a class of state transitions can be regarded as an accessibility relation.
 
 \textbf{Events as occurrences over intervals}
-Another approach to correlate events with the time intervals over which they occur.
+Another approach to correlate events with the time intervals over which they occur. 
 This is done by means of a predicate \textsc{Occurs}$(e, \delta)$, which says that an event of type e occurs during
 the interval $\delta$. Temporal relationships between events can then be described in terms of
 relations between the intervals over which they occur; and in particular by the 13 interval
@@ -376,19 +376,19 @@ tying his shoelace''.
 
 
 \subsection{Temporal Ontology}
-In VEL, In order to model all the possible states of world which did not occur at any point in the actual
+In VEL, In order to model all the possible states of world which did not occur at any point in the actual 
 history of the world. They think of the set of all possible histories of the world as forming s branching tree structure.
 
 \subsubsection{History structures}
 To model the temporal order of states of an evolving universe and the relationship
 between possible alternatives to the actual history of the world we employ a structure that
-we call a \textit{History Structure}. This is a tuple $\mathcal{H} = \langle S, T, <, H \rangle$
+we call a \textit{History Structure}. This is a tuple $\mathcal{H} = \langle S, T, <, H \rangle$ 
 
 \begin{itemize}
-	\item $S$ is a set of world states.
-	\item $T$ is a set of time points.
-	\item $<$ is an irreflexive linear order on $T$.
-	\item $H$ is a set of histories, each of which is a function from $T$ to $S$.
+  \item $S$ is a set of world states.
+  \item $T$ is a set of time points.
+  \item $<$ is an irreflexive linear order on $T$.
+  \item $H$ is a set of histories, each of which is a function from $T$ to $S$.
 \end{itemize}
 
 A pair $\langle \hbar_i, t_i \rangle$ (where $\hbar_i \in H$ and $t_i \in T$) is the \textit{index} of a possible world in the tree, and $h_i(t_i)$ denotes the world state that holds at that index.
@@ -404,31 +404,31 @@ In specifying the semantics for events, They referred to the interval in which a
 Thus this lead to consider a pair $\langle \hbar, [t_1 \dots t_2] \rangle$
 They define the \textit{episode} $[t_1 \dots t_2]_{\hbar}^{\approx}$ (where $t_1 \leq t_2$) by:
 \[
-	[t_1 \dots t_2]_{\hbar}^{\approx} = \{\langle \hbar^{\prime}, [t_1, \dots t_2] \ | \  \hbar^{\prime} \in H \land \hbar^{\prime} \approx^{t_2} \hbar \rangle\}.
+  [t_1 \dots t_2]_{\hbar}^{\approx} = \{\langle \hbar^{\prime}, [t_1, \dots t_2] \ | \  \hbar^{\prime} \in H \land \hbar^{\prime} \approx^{t_2} \hbar \rangle\}.
 \]
 
 \subsubsection{Event-types}
-An \textit{event-type} is a set of episodes. given the partial state $S^{\prime} \subseteq S$, the event-type
+An \textit{event-type} is a set of episodes. given the partial state $S^{\prime} \subseteq S$, the event-type 
 \[
-	\{
-	[t \dots t]_{\hbar}^{\approx} \ | \ (\exists t_1, t_2) [
-			(t_1 < t < t_2) \land
-			\]
-			\[
-			(\forall t^{\prime})[
-					((t_1 < t^{\prime} < t) \to \hbar(t^{\prime}) \not\in S^{\prime}) \land
-					((t \leq t^{\prime} \leq t_2) \to \hbar(t^{\prime}) \in S^{\prime})
-				]
-		]
-	\}
+  \{
+    [t \dots t]_{\hbar}^{\approx} \ | \ (\exists t_1, t_2) [
+    (t_1 < t < t_2) \land
+  \]
+\[
+      (\forall t^{\prime})[
+    ((t_1 < t^{\prime} < t) \to \hbar(t^{\prime}) \not\in S^{\prime}) \land
+    ((t \leq t^{\prime} \leq t_2) \to \hbar(t^{\prime}) \in S^{\prime})
+      ]
+    ]
+  \}
 \]
 
 \subsubsection{Event-tokens}
 \textit{Event-tokens} are occurrences of event-types.
-an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provides a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
+ an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provides a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
 
-\subsubsection{Entities and individuals}
-\subsubsection{Verbs}
-\subsubsection{Propositions}
+ \subsubsection{Entities and individuals}
+ \subsubsection{Verbs}
+ \subsubsection{Propositions}
 
-\section{Conclusion}
+ \section{Conclusion}
