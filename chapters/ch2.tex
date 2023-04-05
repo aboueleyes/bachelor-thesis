@@ -428,7 +428,16 @@ An \textit{event-type} is a set of episodes. given the partial state $S^{\prime}
 an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provides a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
 
 \subsubsection{Entities and individuals}
+In a temporal language, \textit{individuals} must be able to persist through time even as their properties may change.
+In the history tree model of time, an individual is realized in each world state by an \textit{entity}.
+An individual is modeled by a function from states to entities, The time structure and the individuals that inhabit it are modeled by a VEL frame. This model does not impose any constraints on the set of entities or on the functions corresponding to individuals.
+However, further constraints can be added to tie the theory to a particular model of reality.
+Individuals are identified as functions from states to entities rather than using a more general model in which individuals are identified with functions from $H \times T$ to $S$. This identification seems to correspond to the way proper names are normally used.
+
 \subsubsection{Verbs}
+\textit{Verbs} are modeled as functions that take tuples of individuals as inputs and output event-types.
+These verbs are treated as intensional, meaning their function also depends on the history and time at which they are evaluated.
 \subsubsection{Propositions}
+The VEL language's propositional expressions have a truth value that varies with history and time. To avoid pathological models, the truth value of a proposition cannot change infinitely often during a finite period. This is known as intermingling, and the prohibition of intermingling requires that a proposition's truth value is constant over open intervals of time.
 
 \section{Conclusion}
