@@ -27,33 +27,57 @@ Each of these categories has a different temporal and aspectual structure, and V
 
 
 
-\begin{exmp} Analysis of the verb ``think''
-	\begin{enumerate}
+Vendler uses the linguistic test to classify verbs, for example in order to distinguish the verbs admitting continuous terms the question ``What are you doing?'' might be answered by
+``I am running (or writing, working, etc.)''
+but not by ``I am knowing (or believing, loving, etc.)''. On the other hand, the appropriate question and answer would be``Do you know?'' or ``Do you believe?'',
+``Yes, I do.'' have no counterpart in ``Do you run?'' ``Yes, I do.''\footnote{Unless a different meaning by ``running`` is involved, for example being a habit.}
+
+On the group of verbs admitting continuous terms, Vendler distinguishes between \textit{activities} and \textit{accomplishments}. The question 
+``For How long did he push the cart'' is a significant one, while ``For how long did it take to push the cart'' sounds odd. On the other hand,
+``For how long did he draw the circle'' is not a significant question, while ``For how long did it take to draw the circle'' is a significant one.
+\footnote{Vendler states that \textit{accomplishments} needs terminal point he calls it \textit{climax} for the verb ``draw the circle'' the climax is the moment when the circle is drawn.}
+
+
+\begin{exmp} An example showing the use of the verb ``think''.
+  \begin{enumerate}[label=(\arabic*)]
 		\item He is ``thinking'' about John. \label{first}
 		\item He ``thinks'' that John is a philosopher. \label{second}
 	\end{enumerate}
 
-	The verb ``think'' functions differently in the two sentences presented. In the first sentence \ref{first}, ``thinking'' is characterized as a \textit{process} that involves ongoing mental activity related to John, whereas in the second sentence \ref{second}, ``thinks'' describes a \textit{state} of belief or opinion about John.
+	The verb ``think'' functions differently in the two sentences presented. In  \ref{first}, ``thinking'' is characterized as a \textit{process} that involves ongoing mental activity related to John, whereas in  \ref{second}, ``thinks'' describes a \textit{state} of belief or opinion about John.
 
-	The first sentence \ref{first} suggests that the activity of ``thinking'' about something is a deliberate and continuous process that occurs over time. The phrase ``deliberately'' highlights the intentional nature of the activity. Furthermore, if one were to think about John for a period of time, it would imply that the thinking was consistent and continuous throughout that time period. This notion is expressed as \textit{homogeneity}.
+	The \ref{first} suggests that the activity of ``thinking'' about something is a deliberate and continuous process that occurs over time. The phrase ``deliberately'' highlights the intentional nature of the activity. Furthermore, if one were to think about John for a period of time, it would imply that the thinking was consistent and continuous throughout that time period. This notion is expressed as \textit{homogeneity}.
 \end{exmp}
+
 
 
 \section{Interval Algebra}
 
-Allen's paper presents a framework called the \textit{Interval Algebra} for representing and reasoning about actions and time in natural language processing and artificial intelligence systems \cite{allen1984towards}. The Interval Algebra uses a set of basic temporal relations to describe the temporal and causal relationships between events and actions. For example, it can represent relations such as ``before'',``after'',``meets'',``overlaps'',``during'', and ``equals'' between different intervals of time.
+Allen's paper presents a framework called the \textit{Interval Algebra} for representing and reasoning about actions and time in natural language processing and artificial intelligence systems \cite{allen1984towards}. Interval Algebra uses a set of basic temporal relations to describe the temporal relationships between events and actions. For example, it can represent relations such as ``before'',``after'',``meets'',``overlaps'',``during'', and ``equals'' between different intervals of time.
 
-Allen argues that the Interval Algebra can be used to model a wide range of natural language expressions involving \textit{actions} and \textit{events}. This includes simple statements about temporal order, such as ``John ate breakfast before he went to work'', as well as more complex descriptions of causality and concurrency, such as ``When John opened the door, the alarm went off.''
+Allen argues that Interval Algebra can be used to model a wide range of natural language expressions involving \textit{actions} and \textit{events}. This includes simple statements about temporal order, such as ``John ate breakfast before he went to work'', as well as more complex descriptions of concurrency, such as ``When John opened the door, the alarm went off.''
 
 Allen presents a \textit{many-sorted} \textit{first-order} logic, defining several sorts related to various ontological entities identified.
-
 Allen takes the \textit{interval} as the temporal primitive, completely excluding the notion of \textit{point} from the theory, arguing that our direct experience
 is with events and actions which typically take time to occur.
 
-He Introduced a set of 13 mutually exclusive binary relations between intervals and
+He introduced a set of 13 mutually exclusive binary relations between intervals and
 defined the \textit{interval algebra} as all the possible disjunctions that can be formed from these relations.
 
-In this framework, time is modeled as \textit{linear} and \textit{infinite}, the interval structure implies time is \textit{continuous}.
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{images/allen-13-interval-logic.png}
+  \end{center}
+  \caption{}
+  \label{fig: allen-13-interval-logic}
+\end{figure} \footnote{
+  These all have their intuitive meaning, with the exception of \textsc{Overlap}: we tend to think of
+  overlap as symmetric (if $i$ overlaps $j$ then $j$ overlaps $i$), but in this deﬁnition, \textsc{Overlap}$(i, j)$
+  only is true if $i$ begins before $j$ \cite{russell2016artificial}
+}
+
+
+% In this framework, time is modeled as \textit{linear} and \textit{infinite}, and the interval structure implies time is \textit{continuous}.
 
 \begin{exmp} Allen's Interval Algebra
 
@@ -129,22 +153,23 @@ As we illustrated, a process occurring over an interval $T$, must be occurring o
 \section{Shoham Temporal Logic}
 
 In his paper \cite{shoham1988temporal}.
-Shoham shows how Allen' Ontology have a problem defining the properties as they are not only not precise but they look like the $\mathcal{FOPC}$, so he missed the-off-shelf $\mathcal{FOPC}$.
+Shoham shows how Allen' ontology has a problem defining the properties as they are not only not precise but they look like the \textit{First Order Predict Calculus} 
+($\mathcal{FOPC}$), so he missed the-off-shelf $\mathcal{FOPC}$.
 
-Also he shows that Allen's Ontology introduces unnecessary complexity just because Allen went for using intervals instead of time points.
+Also, he shows that Allen's Ontology introduces unnecessary complexity just because Allen went for using intervals instead of time points.
 
-Shoham also the distinction between \textit{properties}, \textit{events}, and \textit{processes} is unnecessary and it's not very useful.
-For example, much of Allen's discussion of event causation, ECAUSE, should apply to pairs of properties and mixed pairs of properties and events. Furthermore, this distinction is insufficient to express some other properties of propositions, such as that if a proposition holds over two overlapping intervals then it holds over
+Shoham states that the distinction between \textit{properties}, \textit{events}, and \textit{processes} is unnecessary and it's not very useful.
+For example, much of Allen's discussion of event causation, \textsc{Ecause}, should apply to pairs of properties and mixed pairs of properties and events. Furthermore, this distinction is insufficient to express some other properties of propositions, such as that if a proposition holds over two overlapping intervals then it holds over
 the union of the two intervals, though not necessarily vice versa (``I ran for more than two mile'').
 
 
 \subsection{Shoham's Interval Logic}
-Shoham has proposed the use of \textit{points} rather than \textit{intervals} as the basic temporal element and defines an interval as a pair of points.
+Shoham has proposed using \textit{points} rather than \textit{intervals} as the basic temporal element and defines an interval as a pair of points.
 \subsubsection{Syntax}
 \begin{itemize}
 	\item Given $TC$ a set of time points symbols,
 	\item $C$ a set of constant symbols that's disjoint from $TC$;
-	\item $TV$ a set of temproal variables,
+	\item $TV$ a set of temporal variables,
 	\item $V$ a set of variables that's disjoint from $TV$.
 	\item $TF$ a set of temporal function symbols,
 	\item $F$ a set of function symbols that's disjoint from $TF$.
@@ -174,9 +199,9 @@ The set of well-formed formulas (wffs) is defined inductively as follows:
 	\item if $\phi$ is a wff and $z \in TV \cup V$ is a variable, then $\forall z \phi$ is a wff.
 \end{enumerate}
 
-Again, we assume the usual definition of $\lor, \exists, \equiv, \supset$ and so on.
+Again, we assume the usual definition of $\lor, \exists, \equiv, \supset$, and so on.
 
-\begin{exmp} Here's an example sentences.
+\begin{exmp} Here's an example sentence.
 	\begin{equation}
 		\textsc{True}(t_1, t_2, \textsc{Color}(\textsc{House17}, \textsc{Red})))
 	\end{equation}
@@ -200,22 +225,22 @@ We first define the meaning of arbitrary temporal terms. That meaning is the sam
 $(12:00 + 12_{min})$ each denote a single, unambiguous absolute time. The precise
 meaning of temporal terms is as follows. If $vt \in VT $, then $MVA (vt) = VAT (vt)$.
 If $ct \in CT$, then $MVA (ct) = M_1(ct)$. If $f \in T F$ and $trm = f(trm_1, . . . , trm_n)$ Is a
-temporal term, then
+the temporal term, then
 
 \[
 	MVA(trm) = M_3(f)(MVA(trm_1), \dots, MVA(trm_n))
 \]
 
 A more comprehensive ontology can be created by defining how the truth of a statement over a specific time interval is related to its truth over other related intervals.
-The ontology includes several classes of temporal entities, such as \textit{Downward-hereditary} (which holds true over all subintervals), \textit{Upward-hereditary} (which holds true over all proper subintervals of some nonpoint interval, also holds over the nonpoint interval itself),
+The ontology includes several classes of temporal entities, such as \textit{Downward-hereditary} (which holds true overall subintervals), \textit{Upward-hereditary} (which holds true overall proper subintervals of some nonpoint interval, also holds over the nonpoint interval itself),
 \textit{Liquid} (which is both upward- and downward-hereditary), \textit{Concatenable} (which holds true over the union of two consecutive intervals),
 \textit{Gestalt} (which never holds true over two intervals, one of which contains the other), and \textit{Solid} (which never holds true over two overlapping intervals).
 
 \begin{exmp} Examples
 	\begin{enumerate}
-		\item `The robot travelled less than two miles.'' is downward-hereditary.
-		\item ``The robot travelled at a speed of two miles per hour'' is upward-hereditary.
-		\item ``The robot started and ended at the same place'' and ``The robot travelled an even number of miles'' are concatenable.
+		\item `The robot traveled less than two miles.'' is downward-hereditary.
+		\item ``The robot traveled at a speed of two miles per hour'' is upward-hereditary.
+		\item ``The robot started and ended at the same place'' and ``The robot traveled an even number of miles'' are concatenable.
 		\item ``The robot executed the NAVIGATE procedure (from start to finish)`` is solid.
 	\end{enumerate}
 \end{exmp}
@@ -239,7 +264,7 @@ Allen follows this with a more complicated axiom:
 \end{equation}
 And he defines the negation of a property as follows:
 \begin{equation}
-	\textsc{Holds}(\textsc{Not}(p), T) \leftrightarrow \neg (\forall t) [\textsc{In}(t, T) \to \neg \textsc{Holds}(p, t)].
+	\textsc{Holds}(\textsc{Not}(p), T) \leftrightarrow (\forall t) [\textsc{In}(t, T) \to \neg \textsc{Holds}(p, t)].
 	\label{eq:axiom2}
 \end{equation}
 Allen notes that \textsc{Holds}(\textsc{Not}($p$, $T$)) implies $\neg$ \textsc{Holds}($p$, $T$), but not conversely, and that \textsc{Holds}(\textsc{Not}(\textsc{Not}($p$)), $T$) is equivalent to \textsc{Holds}($p$, $T$).
@@ -251,7 +276,7 @@ Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to dif
 	Assume that \textit{property-negation} does exactly capture our intuitive understanding of the negation of a property. In that case, if we let $p$ stand for ``$X \  is \  at \ P$''
 	then $not(p)$ must stand for ``$X \  is \  not \  at \ P$''.
 
-	No suppose that $X$ is in continuous motion throughout the interval $T$. This means that there is no subinterval of $T$ during which $X$ is at $P$;
+	Now suppose that $X$ is in continuous motion throughout the interval $T$. This means that there is no subinterval of $T$ during which $X$ is at $P$;
 	for if there were such a subinterval, then $X$ would be at rest throughout that subinterval, and hence not continuously moving throughout $T$.
 
 	\begin{equation}
@@ -267,7 +292,7 @@ Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to dif
 	\end{equation}
 	By our assumption, this means that $X$ is not at $P$ throughout $T$. Since $P$ can be any point in space, this means that $X$ is never at any position at all at any time during $T$, which is absurd.
 
-	The consequence of this is that in Allen's system these properties are not really distinct after all; that is, Allen's system cannot distinguish between a body's being in a certain position, and its being at rest there.
+	The consequence is that in Allen's system, these properties are not really distinct; that is, Allen's system cannot distinguish between a body's being in a certain position and its being at rest there.
 \end{exmp}
 
 Galton gave more examples motivating his revision of Allen's temporal logic adding the notion of \textit{instant} to the theory to address the mentioned difficulties.
@@ -278,18 +303,18 @@ Allen's argument for excluding \textit{instants} from his temporal ontology is, 
 	\textsc{Meet}(S, T) \  \& \  \textsc{Holds}(p, S) \ \&  \ \textsc{Holds}(\textsc{not}(p), T)
 \]
 i.e $S$ and $T$ are contiguous intervals such that some proposition $p$ holds over $S$ and its negation holds over $T$. Then if we allow the existence of an instant $I$ at the point where $S$ and $T$ meet, one of the following cases must occur
-\begin{enumerate}
-	\item  $I$ is part of both $S$ and $T$.\label{item:1}
+\begin{enumerate}[label=(\arabic*)]
+  \item  $I$ is part of both $S$ and $T$.\label{item:1}
 	\item  $I$ is part of $S$ but not $T$.\label{item:2}
 	\item  $I$ is part of $T$ but not $S$. \label{item:3}
 	\item  $I$ is part of neither $S$ nor $T$. \label{item:4}
 \end{enumerate}
 In case \ref{item:1}, the proposition $p$ holds over $I$ and its negation holds over $I$, which is absurd;
 in case \ref{item:2}, $p$ would be neither true nor false at $I$, which is absurd;
-while as for the remaining two cases, since there's nothing to choose between them, any decision either way must be artificial. So, Allen concluded, we ought to banish instants altogether.
+while as for the remaining two cases, since there's nothing to choose between them, any decision, either way, must be artificial. So, Allen concluded, we ought to banish instants altogether.
 
 Galton states that the trouble is that Allen assumes that the only way we can embrace both instants and
-intervals is by assuming that intervals are made up out of instants, that instants are as it were the atoms out if which intervals are made.
+intervals are by assuming that intervals are made up of instants, that instants are as it were the atoms out of which intervals are made.
 Galtin says the difficulty in the choice between \ref{item:1} to \ref{item:4} is because it has no relevance to real questions about time.
 
 % Galton introduces  WITHIN$(I, T)$ that the instant $U$ falls within the interval $T$, and LIMITS$(I, t)$ to mean that $I$ limits $T$.
@@ -304,7 +329,7 @@ Galtin says the difficulty in the choice between \ref{item:1} to \ref{item:4} is
 %
 % for on this definition, if $S$ meets $T$, it cannot happen that neg$(p)$ holds
 % throughout $S$ and throughout $T$ but not throughout JOIN$(S, T)$. What we want,
-% of course, is a definition which, once "p holds at I" is defined, will yield the
+% of course is a definition which, once "p holds at I" is defined, will yield the
 % equivalence:
 % neg $(p)$ holds at $I$ iff $p$ does not hold at $I$.
 
@@ -320,7 +345,7 @@ States of position can hold at isolated instants; and if a state of position
 holds throughout an interval, then it must hold at the limits of that interval.
 Examples: a body's being in a particular position, or moving at a particular
 speed or in a particular direction. More generally, any state which consists of
-some continuously variable quantity's assuming a particular value is a state of
+some continuously variable quantity assuming a particular value is a state of
 position.
 
 States of motion cannot hold at isolated instants: if a state of motion holds
@@ -351,20 +376,20 @@ every instant within that interval:
 
 
 \section{Versatile Event Logic (VEL)}
-In \cite{bennett2001unifying}, they present a formal semantics for a language representing temporal relationships and events, the language is called \textit{Versatile Event Logic }(VEL)
+In \cite{bennett2001unifying}, they present formal semantics for a language representing temporal relationships and events, the language is called \textit{Versatile Event Logic }(VEL)
 
 Unlike Allen, VEL uses both \textit{time points} and \textit{intervals variables} as well as \textit{tenses}.
 Their formalism incorporates each of these:
 
 
-\textbf{Events as transitions} A view of the event as transition between states, this transition is handled by the modality
+\textbf{Events as transitions} A view of the event as a transition between states, this transition is handled by the modality
 where a class of state transitions can be regarded as an accessibility relation.
 
 \textbf{Events as occurrences over intervals}
 Another approach to correlate events with the time intervals over which they occur.
 This is done by means of a predicate \textsc{Occurs}$(e, \delta)$, which says that an event of type e occurs during
 the interval $\delta$. Temporal relationships between events can then be described in terms of
-relations between the intervals over which they occur; and in particular by the 13 interval
+relations between the intervals over which they occur, and in particular, by the 13 interval
 relations of Allen \cite{allen1984towards}.
 
 \textbf{Event radicals} representing events in terms of event radicals, syntactic
@@ -376,7 +401,7 @@ tying his shoelace''.
 
 
 \subsection{Temporal Ontology}
-In VEL, In order to model all the possible states of world which did not occur at any point in the actual
+In VEL, In order to model all the possible states of the world which did not occur at any point in the actual
 history of the world. They think of the set of all possible histories of the world as forming s branching tree structure.
 
 \subsubsection{History structures}
@@ -400,7 +425,7 @@ An \textit{interval}$[t_1 \dots t_2]$ is the set $\{ t | t \in T \land t_1 \leq 
 A world state $\hbar(t) \in S$ determines all properties of the world at time $t$ in history $\hbar$.
 
 \subsubsection{Episodes}
-In specifying the semantics for events, They referred to the interval in which an event occurs, also the history on which the event occurs.
+In specifying the semantics for events, They referred to the interval in which an event occurs, also the history in which the event occurs.
 Thus this lead to consider a pair $\langle \hbar, [t_1 \dots t_2] \rangle$
 They define the \textit{episode} $[t_1 \dots t_2]_{\hbar}^{\approx}$ (where $t_1 \leq t_2$) by:
 \[
@@ -425,7 +450,7 @@ An \textit{event-type} is a set of episodes. given the partial state $S^{\prime}
 
 \subsubsection{Event-tokens}
 \textit{Event-tokens} are occurrences of event-types.
-an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provides a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
+an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provide a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
 
 \subsubsection{Entities and individuals}
 In a temporal language, \textit{individuals} must be able to persist through time even as their properties may change.
@@ -438,6 +463,31 @@ Individuals are identified as functions from states to entities rather than usin
 \textit{Verbs} are modeled as functions that take tuples of individuals as inputs and output event-types.
 These verbs are treated as intensional, meaning their function also depends on the history and time at which they are evaluated.
 \subsubsection{Propositions}
-The VEL language's propositional expressions have a truth value that varies with history and time. To avoid pathological models, the truth value of a proposition cannot change infinitely often during a finite period. This is known as intermingling, and the prohibition of intermingling requires that a proposition's truth value is constant over open intervals of time.
+The VEL language's propositional expressions have a truth value that varies with history and time. To avoid pathological models, the truth value of a proposition cannot change infinitely often during a finite period. This is known as intermingling, and the prohibition of intermingling requires that a proposition's truth value is constant over open intervals of time. 
+
 
 \section{Conclusion}
+We have seen different approaches to temporal representation and different reasoning, 
+Vendler has classified verbs based on their temporal behavior \textit{activities, accomplishments, achievements, states},
+Allen has classified them into \textit{processes, events, and properties}.
+
+We can see that Vendler's states are similar to Allen's properties, and Vendler's activities are similar to Allen's processes, and Vendler's accomplishments and achievements are similar to Allen's events.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Vendler} & \textbf{Allen} \\
+\hline
+States & Properties \\
+Activities & Processes \\
+Accomplishments and Achievements & Events \\
+\hline
+\end{tabular}
+\caption{Comparison of Vendler's and Allen's linguistic categories}
+\label{tab:comparison}
+\end{table}
+
+An important difference between Vendler's activities and Allen's processes is that Allen's process might be occurring over a subinterval of the interval,
+Vendler defines this differently they describe processes as they consist of successive phases following one another in time.
+

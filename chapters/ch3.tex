@@ -1,0 +1,66 @@
+\chapter{Log AS}
+
+A $Log_A S$ language is a set of terms partitioned into three base syntactic types
+
+$\sigma_s, \sigma_t, \sigma_{ec}, \sigma_{et}$ and $ \sigma_i$.
+
+\begin{itemize}
+	\item $\sigma_s$ is the set of terms denoting states.
+	\item $\sigma_t$ is the set of terms denoting time points.
+	\item $\sigma_{ec}$ is the set of terms denoting event categories.
+	\item $\sigma_{et}$ is the set of terms denoting event types.
+	\item $\sigma_i$ is the set of terms denoting anything else.
+\end{itemize}
+
+
+\section{Syntax}
+\[
+	\textsc{Occurs} \in \sigma_{et} \to \sigma_t \to \sigma_t \to \sigma_s
+\]
+
+\[
+	\textsc{Cat} \in \sigma_{et} \to \sigma_{ec} \to \sigma_s
+\]
+
+\[
+	\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}
+\]
+where $\tau_1, \tau_2 \in \sigma_t$ and $\tau_1 \prec \tau_2$ and $\tau_3 \in \sigma_{et}$.
+
+\[
+	\textsc{Cat}(\tau_1, \tau_2) \in L_{\Omega}
+\]
+where $\tau_1 \in \sigma_{et}$ and $\tau_2 \in \sigma_{ec}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Semantics}
+
+\begin{defn}
+	A $Log_AS$ structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
+		\rangle$ where
+\end{defn}
+
+\begin{itemize}
+	\item $\mathcal{D}$,  the domain of discourse, is a set with two disjoint, non-
+	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
+	\item $\mathfrak{A}$
+
+	\item $\mathfrak{h}$
+
+	\item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T}^2 \to \mathcal{S}$
+	\item $\mathfrak{c} : \mathcal{ET} \times \mathcal{EC} \to \mathcal{S}$
+\end{itemize}
+
+\begin{defn}Valuation function
+	\begin{itemize}
+		\item  \textlbrackdbl $\textsc{Occurs}(\tau_1, \tau_2, \tau_3)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{o}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_3$\textrbrackdbl$^{\mathcal{V}}$)
+
+		\item  \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{c}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+	\end{itemize}
+\end{defn}
