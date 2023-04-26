@@ -148,7 +148,13 @@ Consider the \textit{process} ``I am walking'' over the Interval $I$. Unlike \te
 If a process $p$ took place over interval $t$ is denoted by the formula \textsc{Occurring}$(p,t)$.
 
 
-As we illustrated, a process occurring over an interval $T$, must be occurring over at least one subinterval of $T$.
+As we illustrated, a process occurring over an interval $T$, must be occurring over at least one subinterval of $T$.\footnote{This process distinction is problematic, What does he mean by ``walking'' does not hold over all subintervals?
+  \begin{itemize}
+    \item 
+  Does it mean that if we shoot a video of john walking, and watch the resulting walking picture one frame at a time, we would notice some frames we don't know he's ``walking'' or not?
+\item Or he mean while ``walking'' he might do something else?
+  \end{itemize}
+}
 
 \section{Shoham Temporal Logic}
 
@@ -241,12 +247,12 @@ The ontology includes several classes of temporal entities, such as \textit{Down
 		\item `The robot traveled less than two miles.'' is downward-hereditary.
 		\item ``The robot traveled at a speed of two miles per hour'' is upward-hereditary.
 		\item ``The robot started and ended at the same place'' and ``The robot traveled an even number of miles'' are concatenable.
-		\item ``The robot executed the NAVIGATE procedure (from start to finish)`` is solid.
+    \item ``The robot executed the \textsc{Navigate} procedure (from start to finish)`` is solid.
 	\end{enumerate}
 \end{exmp}
 
 
-\section{Galton and Allen's Temporal Logic}
+\section{Galton Temporal Logic}
 In his paper \cite{galton2004}, Galton has proposed a revision of Allen's temporal logic intended to represent continuous change.
 His argument is that Allen's theory stands inadequate for representing continuous change because it requires the notion of \textit{instant} which is not captured by the notion of \textit{interval structure}.
 
@@ -491,3 +497,8 @@ Accomplishments and Achievements & Events \\
 An important difference between Vendler's activities and Allen's processes is that Allen's process might be occurring over a subinterval of the interval,
 Vendler defines this differently they describe processes as they consist of successive phases following one another in time.
 
+
+Shoham propsed something different than Vendler and Allen, he proposed a temporal ontology, relying on the relation between the truth of the proposition
+over one interval and its truth over others.
+
+Galton divides Allen's states into two categories, \textit{states of postition} and \textit{states of mostion}.

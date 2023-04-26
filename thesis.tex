@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{book}%, oneside
+\documentclass[12pt, a4paper, openany]{book}%, oneside
 
 \usepackage[headings]{fullpage}
 \usepackage{setspace}
@@ -27,6 +27,8 @@
 \usepackage{ifpdf}
 \usepackage[utf8]{inputenc}
 \usepackage{ textcomp }
+\usepackage{enumitem}
+
 
 % \setlength{\parindent}{0pt}
 
@@ -71,6 +73,8 @@
 %
 \theoremstyle{definition}
 \newtheorem{exmp}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+
 
 
 % \ifpdf
@@ -114,6 +118,7 @@
 % \include{conclusion}
 \include{chapters/ch1}
 \include{chapters/ch2}
+\include{chapters/ch3}
 % \include{future_work}
 % \include{appendix}
 
