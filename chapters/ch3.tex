@@ -1,66 +1,66 @@
 \chapter{Log AS}
 
-A $Log_A S$ language is a set of terms partitioned into three base syntactic types
+In his paper \cite{ismail2013stability}, Ismail presents
+$Log_AS$ a class of many-sorted languages that share a common core of logical symbols and differ in a signature of non-logical symbols. In what follows, we identify a sort $\sigma$ with
+the set of symbols of sort $\sigma$.
 
-$\sigma_s, \sigma_t, \sigma_{ec}, \sigma_{et}$ and $ \sigma_i$.
-
+A $Log_AS$ language is a set of terms partitioned into three base syntactic types, $\sigma_S , \sigma_T ,$
+and $\sigma_i.$ Intuitively, 
 \begin{itemize}
-	\item $\sigma_s$ is the set of terms denoting states.
-	\item $\sigma_t$ is the set of terms denoting time points.
-	\item $\sigma_{ec}$ is the set of terms denoting event categories.
-	\item $\sigma_{et}$ is the set of terms denoting event types.
-	\item $\sigma_i$ is the set of terms denoting anything else.
+  \item $\sigma_S$ is the set of terms denoting states 
+   \item $\sigma_T$ is the set of terms denoting time points 
+   \item $\sigma_I$ is the set of terms denoting anything else.
 \end{itemize}
-
 
 \section{Syntax}
-\[
-	\textsc{Occurs} \in \sigma_{et} \to \sigma_t \to \sigma_t \to \sigma_s
-\]
+An alphabet of $Log_A S$ is made up of a set of syncategorematic punctuation symbols and a set of denoting symbols each from a set $\sigma$ of syntactic types.
 
-\[
-	\textsc{Cat} \in \sigma_{et} \to \sigma_{ec} \to \sigma_s
-\]
+The set $\sigma$ is the smallest set containing all of the following types: 
+$\sigma_S, \sigma_T, \sigma_I$ and $\varsigma_1 \to \varsigma_2$, 
+for $\varsigma_1 \in \{\sigma_S, \sigma_T, \sigma_I \}$ and $\varsigma_2 \in \sigma$.
+$\varsigma_1 \to \varsigma_2$ is the syntactic type of function symbols that take a single
+argument of type $\sigma_S, \sigma_T$ or $\sigma_I$ and produce a functional
+term of type $\varsigma_2$.
+Given the restriction of the first argument of function symbols to base types, $Log_A S$ is a first-order language.
 
-\[
-	\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}
-\]
-where $\tau_1, \tau_2 \in \sigma_t$ and $\tau_1 \prec \tau_2$ and $\tau_3 \in \sigma_{et}$.
 
-\[
-	\textsc{Cat}(\tau_1, \tau_2) \in L_{\Omega}
-\]
-where $\tau_1 \in \sigma_{et}$ and $\tau_2 \in \sigma_{ec}$.
+A $Log_A S$ alphabet is a union of four disjoint sets:
+$ \Omega \cup \Xi \cup \Sigma \cup \Lambda$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Semantics}
+The set $\Omega$, the \textit{signature} of the language, is a nonempty set of constant and function symbols. Each symbol in the signature has a designated syntactic type from $\sigma$. $\Omega$  is
+what distinguishes one $LogA S$ language from another.
 
-\begin{defn}
-	A $Log_AS$ structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
-		\rangle$ where
-\end{defn}
+The set $\Xi = \{x_i, t_i, s_i\}_{i \in \mathbb{N}}$ is a countably infinite set of variables, where$x_i \in \sigma_I, t_i \in \sigma_T$ and $s_i \in \sigma_S$. $\Sigma$ is a set
+of syncategorematic symbols, including the comma, various
+matching pairs of brackets and parentheses, and the symbol $\forall$.
+
+The set $\Lambda$ is the set of logical symbols of $Log_A S$, defined
+as the union of the following sets.
+
+\begin{enumerate}
+  \item $\neg \in \sigma_S \to \sigma_S$
+  \item $\{\land, \lor \} \subseteq \sigma_S \to \sigma_S \to \sigma_S$
+  \item $\textsc{HoldsAt} \in \sigma_S \to \sigma_T \to \sigma_S$
+  \item $\prec \in \sigma_T \to \sigma_T \to \sigma_S$
+\end{enumerate}
+
+A $Log_AS$ language with signature $\Omega$ is denoted by $L_{\Omega}$ It
+is the smallest set of terms formed according to the following
+rules, where $\tau$ and $\tau_i (i \in \mathbb{N})$ are terms in $L_{\Omega}$
 
 \begin{itemize}
-	\item $\mathcal{D}$,  the domain of discourse, is a set with two disjoint, non-
-	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
-	\item $\mathfrak{A}$
-
-	\item $\mathfrak{h}$
-
-	\item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T}^2 \to \mathcal{S}$
-	\item $\mathfrak{c} : \mathcal{ET} \times \mathcal{EC} \to \mathcal{S}$
+  \item $\Xi \subset L_{\Omega}$
+  \item $c \in L_{\Omega}$, where $c \in \Omega$ is a constant symbol.
+  \item $f(\tau_1, \tau_2, \dots, \tau_n) \in L_{\Omega}$, where $f \in \Omega$ is of type 
+    $\varsigma_1 \dots \to \varsigma_n \to \varsigma  (n > 0)$ and $\tau_i$ is of type of $\varsigma_i$.
+  \item $\neg \tau \in L_{\Omega}$, where $\tau \in \sigma_S$.
+  \item $(\tau_1 \otimes \tau_2) \in L_{\Omega}$, where $\otimes \in \{\land, \lor\}$ and $\tau_1, \tau_2 \in \sigma_S$.
+  \item $\forall x(\tau) \in L_{\Omega}$, where $x \in \Xi$ and $\tau \in \sigma_S$.
+  \item $\textsc{HoldsAt}(\tau_1, \tau_2) \in L_{\Omega}$, where $\tau_1 \in \sigma_S$ and $\tau_2 \in \sigma_T$.
+  \item $\prec(\tau_1, \tau_2) \in L_{\Omega}$, where $\tau_1, \tau_2 \in \sigma_T$.
 \end{itemize}
 
-\begin{defn}Valuation function
-	\begin{itemize}
-		\item  \textlbrackdbl $\textsc{Occurs}(\tau_1, \tau_2, \tau_3)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{o}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
-		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_3$\textrbrackdbl$^{\mathcal{V}}$)
 
-		\item  \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{c}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
-		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
-	\end{itemize}
-\end{defn}
+
+
+\section{Semantics}

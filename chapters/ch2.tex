@@ -32,14 +32,14 @@ Vendler uses the linguistic test to classify verbs, for example in order to dist
 but not by ``I am knowing (or believing, loving, etc.)''. On the other hand, the appropriate question and answer would be``Do you know?'' or ``Do you believe?'',
 ``Yes, I do.'' have no counterpart in ``Do you run?'' ``Yes, I do.''\footnote{Unless a different meaning by ``running`` is involved, for example being a habit.}
 
-On the group of verbs admitting continuous terms, Vendler distinguishes between \textit{activities} and \textit{accomplishments}. The question 
+On the group of verbs admitting continuous terms, Vendler distinguishes between \textit{activities} and \textit{accomplishments}. The question
 ``For How long did he push the cart'' is a significant one, while ``For how long did it take to push the cart'' sounds odd. On the other hand,
 ``For how long did he draw the circle'' is not a significant question, while ``For how long did it take to draw the circle'' is a significant one.
 \footnote{Vendler states that \textit{accomplishments} needs terminal point he calls it \textit{climax} for the verb ``draw the circle'' the climax is the moment when the circle is drawn.}
 
 
 \begin{exmp} An example showing the use of the verb ``think''.
-  \begin{enumerate}[label=(\arabic*)]
+	\begin{enumerate}[label=(\arabic*)]
 		\item He is ``thinking'' about John. \label{first}
 		\item He ``thinks'' that John is a philosopher. \label{second}
 	\end{enumerate}
@@ -65,15 +65,15 @@ He introduced a set of 13 mutually exclusive binary relations between intervals 
 defined the \textit{interval algebra} as all the possible disjunctions that can be formed from these relations.
 
 \begin{figure}
-  \begin{center}
-    \includegraphics[width=0.95\textwidth]{images/allen-13-interval-logic.png}
-  \end{center}
-  \caption{}
-  \label{fig: allen-13-interval-logic}
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{images/allen-13-interval-logic.png}
+	\end{center}
+	\caption{}
+	\label{fig: allen-13-interval-logic}
 \end{figure} \footnote{
-  These all have their intuitive meaning, with the exception of \textsc{Overlap}: we tend to think of
-  overlap as symmetric (if $i$ overlaps $j$ then $j$ overlaps $i$), but in this deﬁnition, \textsc{Overlap}$(i, j)$
-  only is true if $i$ begins before $j$ \cite{russell2016artificial}
+	These all have their intuitive meaning, with the exception of \textsc{Overlap}: we tend to think of
+	overlap as symmetric (if $i$ overlaps $j$ then $j$ overlaps $i$), but in this deﬁnition, \textsc{Overlap}$(i, j)$
+	only is true if $i$ begins before $j$ \cite{russell2016artificial}
 }
 
 
@@ -149,17 +149,17 @@ If a process $p$ took place over interval $t$ is denoted by the formula \textsc{
 
 
 As we illustrated, a process occurring over an interval $T$, must be occurring over at least one subinterval of $T$.\footnote{This process distinction is problematic, What does he mean by ``walking'' does not hold over all subintervals?
-  \begin{itemize}
-    \item 
-  Does it mean that if we shoot a video of john walking, and watch the resulting walking picture one frame at a time, we would notice some frames we don't know he's ``walking'' or not?
-\item Or he mean while ``walking'' he might do something else?
-  \end{itemize}
+	\begin{itemize}
+		\item
+		      Does it mean that if we shoot a video of john walking, and watch the resulting walking picture one frame at a time, we would notice some frames we don't know he's ``walking'' or not?
+		\item Or he mean while ``walking'' he might do something else?
+	\end{itemize}
 }
 
 \section{Shoham Temporal Logic}
 
 In his paper \cite{shoham1988temporal}.
-Shoham shows how Allen' ontology has a problem defining the properties as they are not only not precise but they look like the \textit{First Order Predict Calculus} 
+Shoham shows how Allen' ontology has a problem defining the properties as they are not only not precise but they look like the \textit{First Order Predict Calculus}
 ($\mathcal{FOPC}$), so he missed the-off-shelf $\mathcal{FOPC}$.
 
 Also, he shows that Allen's Ontology introduces unnecessary complexity just because Allen went for using intervals instead of time points.
@@ -247,7 +247,7 @@ The ontology includes several classes of temporal entities, such as \textit{Down
 		\item `The robot traveled less than two miles.'' is downward-hereditary.
 		\item ``The robot traveled at a speed of two miles per hour'' is upward-hereditary.
 		\item ``The robot started and ended at the same place'' and ``The robot traveled an even number of miles'' are concatenable.
-    \item ``The robot executed the \textsc{Navigate} procedure (from start to finish)`` is solid.
+		\item ``The robot executed the \textsc{Navigate} procedure (from start to finish)`` is solid.
 	\end{enumerate}
 \end{exmp}
 
@@ -310,7 +310,7 @@ Allen's argument for excluding \textit{instants} from his temporal ontology is, 
 \]
 i.e $S$ and $T$ are contiguous intervals such that some proposition $p$ holds over $S$ and its negation holds over $T$. Then if we allow the existence of an instant $I$ at the point where $S$ and $T$ meet, one of the following cases must occur
 \begin{enumerate}[label=(\arabic*)]
-  \item  $I$ is part of both $S$ and $T$.\label{item:1}
+	\item  $I$ is part of both $S$ and $T$.\label{item:1}
 	\item  $I$ is part of $S$ but not $T$.\label{item:2}
 	\item  $I$ is part of $T$ but not $S$. \label{item:3}
 	\item  $I$ is part of neither $S$ nor $T$. \label{item:4}
@@ -321,7 +321,7 @@ while as for the remaining two cases, since there's nothing to choose between th
 
 Galton states that the trouble is that Allen assumes that the only way we can embrace both instants and
 intervals are by assuming that intervals are made up of instants, that instants are as it were the atoms out of which intervals are made.
-Galtin says the difficulty in the choice between \ref{item:1} to \ref{item:4} is because it has no relevance to real questions about time.
+Galton says the difficulty in the choice between \ref{item:1} to \ref{item:4} is because it has no relevance to real questions about time.
 
 % Galton introduces  WITHIN$(I, T)$ that the instant $U$ falls within the interval $T$, and LIMITS$(I, t)$ to mean that $I$ limits $T$.
 %
@@ -469,29 +469,29 @@ Individuals are identified as functions from states to entities rather than usin
 \textit{Verbs} are modeled as functions that take tuples of individuals as inputs and output event-types.
 These verbs are treated as intensional, meaning their function also depends on the history and time at which they are evaluated.
 \subsubsection{Propositions}
-The VEL language's propositional expressions have a truth value that varies with history and time. To avoid pathological models, the truth value of a proposition cannot change infinitely often during a finite period. This is known as intermingling, and the prohibition of intermingling requires that a proposition's truth value is constant over open intervals of time. 
+The VEL language's propositional expressions have a truth value that varies with history and time. To avoid pathological models, the truth value of a proposition cannot change infinitely often during a finite period. This is known as intermingling, and the prohibition of intermingling requires that a proposition's truth value is constant over open intervals of time.
 
 
 \section{Conclusion}
-We have seen different approaches to temporal representation and different reasoning, 
+We have seen different approaches to temporal representation and different reasoning,
 Vendler has classified verbs based on their temporal behavior \textit{activities, accomplishments, achievements, states},
 Allen has classified them into \textit{processes, events, and properties}.
 
 We can see that Vendler's states are similar to Allen's properties, and Vendler's activities are similar to Allen's processes, and Vendler's accomplishments and achievements are similar to Allen's events.
 
 \begin{table}[h]
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Vendler} & \textbf{Allen} \\
-\hline
-States & Properties \\
-Activities & Processes \\
-Accomplishments and Achievements & Events \\
-\hline
-\end{tabular}
-\caption{Comparison of Vendler's and Allen's linguistic categories}
-\label{tab:comparison}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Vendler}                 & \textbf{Allen} \\
+		\hline
+		States                           & Properties     \\
+		Activities                       & Processes      \\
+		Accomplishments and Achievements & Events         \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of Vendler's and Allen's linguistic categories}
+	\label{tab:comparison}
 \end{table}
 
 An important difference between Vendler's activities and Allen's processes is that Allen's process might be occurring over a subinterval of the interval,

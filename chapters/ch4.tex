@@ -1,0 +1,71 @@
+\chapter{Log AT}
+
+A $Log_A T$ language is a set of terms partitioned into three base syntactic types
+
+$\sigma_s, \sigma_t, \sigma_{ec}, \sigma_{et}$ and $ \sigma_i$.
+
+\begin{itemize}
+	\item $\sigma_s$ is the set of terms denoting states.
+	\item $\sigma_t$ is the set of terms denoting time points.
+	\item $\sigma_{ec}$ is the set of terms denoting event categories.
+	\item $\sigma_{et}$ is the set of terms denoting event tokens.
+	\item $\sigma_i$ is the set of terms denoting anything else.
+\end{itemize}
+
+
+\section{Syntax}
+\[
+	\textsc{Occurs} \in \sigma_{et} \to \sigma_t \to \sigma_t \to \sigma_s
+\]
+
+\[
+	\textsc{Cat} \in \sigma_{et} \to \sigma_{ec} \to \sigma_s
+\]
+
+\[
+	\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}
+\]
+where $\tau_2, \tau_3 \in \sigma_t$  and $\tau_1 \in \sigma_{et}$.
+
+\[
+	\textsc{Cat}(\tau_1, \tau_2) \in L_{\Omega}
+\]
+where $\tau_1 \in \sigma_{et}$ and $\tau_2 \in \sigma_{ec}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Semantics}
+
+\begin{defn}
+	A $Log_AT$ structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
+		\rangle$ where
+\end{defn}
+
+\begin{itemize}
+	\item $\mathcal{D}$,  the domain of discourse, is a set with four disjoint, non-
+	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
+	\item $\mathfrak{A}$
+
+	\item $\mathfrak{h}$
+
+	\item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T}^2 \to \mathcal{S}$ where
+	      \begin{itemize}
+		      \item $\mathfrak{o}(e, t_1, t_2) . (t_2 \prec t_1) = \bot$
+		      \item $\mathfrak{o}(e, t_1, t_2) . \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4$
+		      \item $\displaystyle \sum_{t\in T} \mathfrak{h}, \mathfrak{o}(e, t_1, t_2), t) \leq \prod_{t\in T} \mathfrak{h}, \mathfrak{o}(e, t_1, t_2), t)$
+	      \end{itemize}
+	\item $\mathfrak{c} : \mathcal{ET} \times \mathcal{EC} \to \mathcal{S}$
+\end{itemize}
+
+\begin{defn}Valuation function
+	\begin{itemize}
+		\item  \textlbrackdbl $\textsc{Occurs}(\tau_1, \tau_2, \tau_3)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{o}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_3$\textrbrackdbl$^{\mathcal{V}}$)
+
+		\item  \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{c}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+	\end{itemize}
+\end{defn}
