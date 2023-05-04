@@ -110,7 +110,7 @@ where $\tau \in \sigma_{EC}$.
 	\item $\downarrow : \mathcal{S} \to \mathcal{EC}$
 	\item $\mathfrak{cl}$ : $\mathcal{ET} \times \mathcal{ET} \to \mathcal{ET}$
 	\item $\mathfrak{po} : \mathcal{S} \to \mathcal{EC}$
-	\item $\mathfrak{prog} : \mathcal{EC} \to \mathcal{S}$
+	\item $\mathfrak{prog} : \mathcal{EC} \to \mathcal{S}$ 
 \end{itemize}
 
 \begin{defn}Valuation function
@@ -124,7 +124,7 @@ where $\tau \in \sigma_{EC}$.
 		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Onset}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
 		      = $\uparrow$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
-
+		
 		\item \textlbrackdbl $\textsc{Cease}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
 		      = $\downarrow$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Clos}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
@@ -134,6 +134,6 @@ where $\tau \in \sigma_{EC}$.
 		      = $\mathfrak{po}$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
 		      = $\mathfrak{prog}$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
-
+		
 	\end{itemize}
 \end{defn}

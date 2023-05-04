@@ -29,13 +29,13 @@ Each of these categories has a different temporal and aspectual structure, and V
 
 Vendler uses the linguistic test to classify verbs, for example in order to distinguish the verbs admitting continuous terms the question ``What are you doing?'' might be answered by
 ``I am running (or writing, working, etc.)''
-but not by ``I am knowing (or believing, loving, etc.)''. On the other hand, the appropriate question and answer would be``Do you know?'' or ``Do you believe?'',
-``Yes, I do.'' have no counterpart in ``Do you run?'' ``Yes, I do.''\footnote{Unless a different meaning by ``running`` is involved, for example being a habit.}
+but not by ``I am knowing (or believing, loving, etc.)''.
+On the other hand, the appropriate question and answer would be ``Do you know?'' or ``Do you believe?'',
+``Yes, I do.'' have no counterpart in ``Do you run?'' ``Yes, I do.''\footnote{Unless a different meaning by ``running'' is involved, for example being a habit.}
 
 On the group of verbs admitting continuous terms, Vendler distinguishes between \textit{activities} and \textit{accomplishments}. The question
 ``For How long did he push the cart'' is a significant one, while ``For how long did it take to push the cart'' sounds odd. On the other hand,
-``For how long did he draw the circle'' is not a significant question, while ``For how long did it take to draw the circle'' is a significant one.
-\footnote{Vendler states that \textit{accomplishments} needs terminal point he calls it \textit{climax} for the verb ``draw the circle'' the climax is the moment when the circle is drawn.}
+``For how long did he draw the circle'' is not a significant question, while ``For how long did it take to draw the circle'' is a significant one.\footnote{Vendler states that \textit{accomplishments} needs terminal point he calls it \textit{climax} for the verb ``draw the circle'' the climax is the moment when the circle is drawn.}
 
 
 \begin{exmp} An example showing the use of the verb ``think''.
@@ -44,9 +44,9 @@ On the group of verbs admitting continuous terms, Vendler distinguishes between 
 		\item He ``thinks'' that John is a philosopher. \label{second}
 	\end{enumerate}
 
-	The verb ``think'' functions differently in the two sentences presented. In  \ref{first}, ``thinking'' is characterized as a \textit{process} that involves ongoing mental activity related to John, whereas in  \ref{second}, ``thinks'' describes a \textit{state} of belief or opinion about John.
+	The verb ``think'' functions differently in the two sentences presented. In~\ref{first}, ``thinking'' is characterized as a \textit{process} that involves ongoing mental activity related to John, whereas in~\ref{second}, ``thinks'' describes a \textit{state} of belief or opinion about John.
 
-	The \ref{first} suggests that the activity of ``thinking'' about something is a deliberate and continuous process that occurs over time. The phrase ``deliberately'' highlights the intentional nature of the activity. Furthermore, if one were to think about John for a period of time, it would imply that the thinking was consistent and continuous throughout that time period. This notion is expressed as \textit{homogeneity}.
+	The~\ref{first} suggests that the activity of ``thinking'' about something is a deliberate and continuous process that occurs over time. The phrase ``deliberately'' highlights the intentional nature of the activity. Furthermore, if one were to think about John for a period of time, it would imply that the thinking was consistent and continuous throughout that time period. This notion is expressed as \textit{homogeneity}.
 \end{exmp}
 
 
@@ -64,15 +64,14 @@ is with events and actions which typically take time to occur.
 He introduced a set of 13 mutually exclusive binary relations between intervals and
 defined the \textit{interval algebra} as all the possible disjunctions that can be formed from these relations.
 
-\begin{figure}
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{images/allen-13-interval-logic.png}
 	\end{center}
-	\caption{}
+	\caption{Allen's 13 interval relations}
 	\label{fig: allen-13-interval-logic}
-\end{figure} \footnote{
-	These all have their intuitive meaning, with the exception of \textsc{Overlap}: we tend to think of
-	overlap as symmetric (if $i$ overlaps $j$ then $j$ overlaps $i$), but in this deﬁnition, \textsc{Overlap}$(i, j)$
+\end{figure}\footnote{These all have their intuitive meaning, with the exception of \textsc{Overlap}: we tend to think of
+	overlap as symmetric (if $i$ overlaps $j$ then $j$ overlaps $i$), but in this dentition, \textsc{Overlap}$(i, j)$
 	only is true if $i$ begins before $j$ \cite{russell2016artificial}
 }
 
@@ -156,7 +155,7 @@ As we illustrated, a process occurring over an interval $T$, must be occurring o
 	\end{itemize}
 }
 
-\section{Shoham Temporal Logic}
+\section{Shoham's Temporal Logic}
 
 In his paper \cite{shoham1988temporal}.
 Shoham shows how Allen' ontology has a problem defining the properties as they are not only not precise but they look like the \textit{First Order Predict Calculus}
@@ -230,7 +229,7 @@ $VAV: V \to W$. $M$ and $VA$ induce a time-dependent meaning $MVA$ on arbitrary 
 We first define the meaning of arbitrary temporal terms. That meaning is the same regardless of when the terms are interpreted: the terms $1.1.2000$ and
 $(12:00 + 12_{min})$ each denote a single, unambiguous absolute time. The precise
 meaning of temporal terms is as follows. If $vt \in VT $, then $MVA (vt) = VAT (vt)$.
-If $ct \in CT$, then $MVA (ct) = M_1(ct)$. If $f \in T F$ and $trm = f(trm_1, . . . , trm_n)$ Is a
+If $ct \in CT$, then $MVA (ct) = M_1(ct)$. If $f \in T F$ and $trm = f(trm_1, \cdots, trm_n)$ Is a
 the temporal term, then
 
 \[
@@ -252,7 +251,7 @@ The ontology includes several classes of temporal entities, such as \textit{Down
 \end{exmp}
 
 
-\section{Galton Temporal Logic}
+\section{Galton's Temporal Logic}
 In his paper \cite{galton2004}, Galton has proposed a revision of Allen's temporal logic intended to represent continuous change.
 His argument is that Allen's theory stands inadequate for representing continuous change because it requires the notion of \textit{instant} which is not captured by the notion of \textit{interval structure}.
 
@@ -275,7 +274,7 @@ And he defines the negation of a property as follows:
 \end{equation}
 Allen notes that \textsc{Holds}(\textsc{Not}($p$, $T$)) implies $\neg$ \textsc{Holds}($p$, $T$), but not conversely, and that \textsc{Holds}(\textsc{Not}(\textsc{Not}($p$)), $T$) is equivalent to \textsc{Holds}($p$, $T$).
 
-Galton shows that Allen's Axioms \ref{eq:axiom1} and \ref{eq:axiom2} lead to difficulties when dealing with continuous change.
+Galton shows that Allen's Axioms~\ref{eq:axiom1} and~\ref{eq:axiom2} lead to difficulties when dealing with continuous change.
 
 \begin{exmp} \textit{property-negation} does not correctly capture what we understand by the negation of a property.
 
@@ -315,13 +314,13 @@ i.e $S$ and $T$ are contiguous intervals such that some proposition $p$ holds ov
 	\item  $I$ is part of $T$ but not $S$. \label{item:3}
 	\item  $I$ is part of neither $S$ nor $T$. \label{item:4}
 \end{enumerate}
-In case \ref{item:1}, the proposition $p$ holds over $I$ and its negation holds over $I$, which is absurd;
-in case \ref{item:2}, $p$ would be neither true nor false at $I$, which is absurd;
+In case~\ref{item:1}, the proposition $p$ holds over $I$ and its negation holds over $I$, which is absurd;
+in case~\ref{item:2}, $p$ would be neither true nor false at $I$, which is absurd;
 while as for the remaining two cases, since there's nothing to choose between them, any decision, either way, must be artificial. So, Allen concluded, we ought to banish instants altogether.
 
 Galton states that the trouble is that Allen assumes that the only way we can embrace both instants and
 intervals are by assuming that intervals are made up of instants, that instants are as it were the atoms out of which intervals are made.
-Galton says the difficulty in the choice between \ref{item:1} to \ref{item:4} is because it has no relevance to real questions about time.
+Galton says the difficulty in the choice between~\ref{item:1} to~\ref{item:4} is because it has no relevance to real questions about time.
 
 % Galton introduces  WITHIN$(I, T)$ that the instant $U$ falls within the interval $T$, and LIMITS$(I, t)$ to mean that $I$ limits $T$.
 %
@@ -363,7 +362,7 @@ either remaining fixed or undergoing a change of value.
 He then introduces
 \begin{itemize}
 	\item  \textsc{Holds-On}$(p, T)$ for a property $p$ to hold over an interval $T$.
-	\item \textsc{Holds-In}$(p, T)$ for a property $p$ to during an interval $I$ (i.e. at some time during an interval not necessarily at the whole interval).
+	\item \textsc{Holds-In}$(p, T)$ for a property $p$ to during an interval $I$ (i.e.\ at some time during an interval not necessarily at the whole interval).
 	\item \textsc{Holds-At}$(p, I)$ for a property $p$ to hold at an instant $I$.
 \end{itemize}
 
@@ -439,7 +438,7 @@ They define the \textit{episode} $[t_1 \dots t_2]_{\hbar}^{\approx}$ (where $t_1
 \]
 
 \subsubsection{Event-types}
-An \textit{event-type} is a set of episodes. given the partial state $S^{\prime} \subseteq S$, the event-type
+An \textit{event-type} is a set of episodes. Given the partial state $S^{\prime} \subseteq S$, the event-type
 \[
 	\{
 	[t \dots t]_{\hbar}^{\approx} \ | \ (\exists t_1, t_2) [
@@ -456,7 +455,7 @@ An \textit{event-type} is a set of episodes. given the partial state $S^{\prime}
 
 \subsubsection{Event-tokens}
 \textit{Event-tokens} are occurrences of event-types.
-an event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provide a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
+An event-token as a pair $(\eta, e)$ where $\eta$ is a specific episode over which an event of type $e$ occurs, the proposed semantics provide a coherent framework that avoids the pitfalls of a naïve development of the idea that event-types can be regarded as predicates over a domain of event-tokens.
 
 \subsubsection{Entities and individuals}
 In a temporal language, \textit{individuals} must be able to persist through time even as their properties may change.
@@ -501,4 +500,4 @@ Vendler defines this differently they describe processes as they consist of succ
 Shoham propsed something different than Vendler and Allen, he proposed a temporal ontology, relying on the relation between the truth of the proposition
 over one interval and its truth over others.
 
-Galton divides Allen's states into two categories, \textit{states of postition} and \textit{states of mostion}.
+Galton divides Allen's states into two categories, \textit{states of postilion} and \textit{states of motion}.
