@@ -16,6 +16,18 @@ $\sigma_S, \sigma_T, \sigma_{EC}, \sigma_{ET}$ and $ \sigma_I$.
 \section{Syntax}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \[
+% 	\sqsubseteq \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+
+% \[
+% 	 \sqsubset \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+
+% \[
+% 	\supset \subset \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+
 \[
 	\textsc{Occurs} \in \sigma_{ET} \to \sigma_T \to \sigma_T \to \sigma_S
 \]
@@ -46,6 +58,21 @@ $\sigma_S, \sigma_T, \sigma_{EC}, \sigma_{ET}$ and $ \sigma_I$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \[
+% 	\tau_1 \sqsubseteq \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
+
+% \[
+% 	\tau_1 \sqsubset \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
+
+% \[
+% 	\tau_1 \supset \subset \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
 
 \[
 	\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}
@@ -92,25 +119,70 @@ where $\tau \in \sigma_{EC}$.
 		\rangle$ where
 \end{defn}
 
+
 \begin{itemize}
 	\item $\mathcal{D}$,  the domain of discourse, is a set with four disjoint, non-
 	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
 	\item $\mathfrak{A}$
 
 	\item $\mathfrak{h}$
+	      % \item $\subseteq: \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
+	      % \begin{itemize}
+	      % 	\item $(t_1 \subseteq t_2) \cdot (t_2 \subseteq t_1) = \bot$ if $t_1 = t_2$
+	      % 	\item $[(t_1 \subseteq t_2) \cdot (t_2 \subseteq t_3)] + (t_1 \subseteq t_3) = t_1 \subseteq t_3$
+	      % 	\item $t_1 \subseteq t_1 = \top$.
+	      % \end{itemize}
+	      % \item $\subset: \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
+	      % \item $>< : \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
 
 	\item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T}^2 \to \mathcal{S}$ where
 	      \begin{itemize}
 		      \item $\mathfrak{o}(e, t_1, t_2) \cdot (t_2 \prec t_1) = \bot$
 		      \item $\mathfrak{o}(e, t_1, t_2) \cdot \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4$
-		      \item $\displaystyle \sum_{t\in T} \mathfrak{h}, \mathfrak{o}(e, t_1, t_2), t) \leq \prod_{t\in T} \mathfrak{h}, \mathfrak{o}(e, t_1, t_2), t)$
+		      \item $\displaystyle \sum_{t\in T} \mathfrak{h}( \mathfrak{o}(e, t_1, t_2), t) \leq \prod_{t\in T} \mathfrak{h}( \mathfrak{o}(e, t_1, t_2), t)$
 	      \end{itemize}
+	\item $\mathcal{ET}$ is a set of two disjoint, non-empty, countable subsets $\mathcal{ET}^d$ and $\mathcal{ET}^p$.
+	\item $\mathcal{EC}$ is a set of two disjoint, non-empty, countable subsets $\mathcal{EC}^d$ and $\mathcal{EC}^p$.
 	\item $\mathfrak{c} : \mathcal{ET} \times \mathcal{EC} \to \mathcal{S}$
-	\item $\uparrow : \mathcal{S} \to \mathcal{EC}$
-	\item $\downarrow : \mathcal{S} \to \mathcal{EC}$
-	\item $\mathfrak{cl}$ : $\mathcal{ET} \times \mathcal{ET} \to \mathcal{ET}$
-	\item $\mathfrak{po} : \mathcal{S} \to \mathcal{EC}$
-	\item $\mathfrak{prog} : \mathcal{EC} \to \mathcal{S}$
+	\item $\uparrow :  \textsc{Temp} \cup \textsc{Prem} \to \mathcal{EC}^p$
+	\item $\downarrow :  \textsc{Temp} \cup \textsc{Co-Prem} \to \mathcal{EC}^p$
+	\item $\mathfrak{cl}$ : $\mathcal{ET}^p \times \mathcal{ET}^p \to \mathcal{ET}^d$
+	      \begin{itemize}
+		      %   \item need to model durative events and punctual events.
+		      \item ($\mathfrak{o}(\mathfrak{cl}(e_1, e_2), t_1, t_2))  \cdot (\exists s, t_3, t_4)[
+				            \textsc{OCpair}(e_1, e_2, s) \cdot (\mathfrak{o}(e_1, t_1, t_3)) \cdot (\mathfrak{o}(e_2, t_4, t_2))]  \cdot (t_3 < t_4) = \top$
+		      \item $\forall e_d \exists e_1, e_2 = \top$. if $\mathfrak{cl}(e_1, e_2) = e_d$
+	      \end{itemize}
+	\item $\mathfrak{po} : \textsc{Temp} \to \mathcal{EC}^d$
+	      \begin{itemize}
+		      \item $\textsc{OCpair}(e_1, e_2, s) \cdot \mathfrak{c}(\mathfrak{cl}(e_1, e_2), \mathfrak{po}(s)) = \top$.
+	      \end{itemize}
+	\item $\mathfrak{prog} : \mathcal{EC}^d \to \textsc{Temp}$
+	      \begin{itemize}
+		      \item \[
+			            [
+					            \textsc{OCpair}(e_1, e_2, s) \cdot \mathfrak{c}(\mathfrak{cl} (e_1, e_2), ec_d)
+				            ] \leq\]  \[\forall t_1, t_2, t_3, t_4 [[\mathfrak{o}(e_1, t_1, t_3) \cdot \mathfrak{o}(e_2, t_4, t_2)
+					            \cdot (t_3 < t_4)] \leq \mathfrak{h}(\mathfrak{prog}(ec_d), t_3, t_4)]
+		            \]
+	      \end{itemize}
+\end{itemize}
+
+\subsection{Macros}
+\begin{itemize}
+	\item $\textsc{NoOcc}(ec, t_1, t_2) =_{\text{def}} \exists e, t_3, t_4
+		      [\mathfrak{c}(e, ec) \cdot t_1 < t_3 \cdot t_4 < t_2 \cdot \mathfrak{o}(e, t_3, t_4)] = \bot$.
+	\item $\textsc{OCpair}(e_1, e_2, s^{t}) =_{\text{def}}$
+
+
+	      \ \ \ \ \ \ \ \ $[ \mathfrak{c}(e_1, \uparrow s^t) \cdot \mathfrak{c}(e_2, \downarrow s^t) \cdot \forall (t_1, t_2), (t_3, t_4)[[
+								      \mathfrak{o}(e_1, t_1, t_2) \cdot \mathfrak{o}(e_2, t_3, t_4)] \leq$
+
+							      \ \ \ \ \ \ \ \ $[(t_3 < t_1) \cdot (t_4 < t_2) \cdot \textsc{NoOcc}(\downarrow s^t, t_2, t_3)]]]$
+	      % \item \[
+	      % 	      \textsc{Covers}((t_1, t_2),(t_3, t_4), (t_4, t_5)) =_\text{def}
+	      % 	      (t_1 < t_2) \cdot (t_3 < t_4) \cdot (t_4 < t_5) \cdot \forall 
+	      %       \]
 \end{itemize}
 
 \begin{defn}Valuation function
@@ -126,14 +198,14 @@ where $\tau \in \sigma_{EC}$.
 		      = $\uparrow$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
 
 		\item \textlbrackdbl $\textsc{Cease}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\downarrow$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
+		      = $\downarrow$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Clos}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{cl}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      = $\mathfrak{cl}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$,
 		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Po}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{po}$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
+		      = $\mathfrak{po}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{prog}$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
+		      = $\mathfrak{prog}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
 
 	\end{itemize}
 \end{defn}
