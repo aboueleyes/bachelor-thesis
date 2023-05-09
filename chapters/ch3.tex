@@ -13,29 +13,12 @@ and $\sigma_i$. Intuitively,
 \end{itemize}
 
 \section{Syntax}
-An alphabet of $Log_A S$ is made up of a set of syncategorematic punctuation symbols and a set of denoting symbols each from a set $\sigma$ of syntactic types.
 
-The set $\sigma$ is the smallest set containing all of the following types:
-$\sigma_S, \sigma_T, \sigma_I$ and $\varsigma_1 \to \varsigma_2$,
-for $\varsigma_1 \in \{\sigma_S, \sigma_T, \sigma_I \}$ and $\varsigma_2 \in \sigma$.
-$\varsigma_1 \to \varsigma_2$ is the syntactic type of function symbols that take a single
-argument of type $\sigma_S, \sigma_T$ or $\sigma_I$ and produce a functional
-term of type $\varsigma_2$.
-Given the restriction of the first argument of function symbols to base types, $Log_A S$ is a \textit{first-order language}.
+An alphabet for $Log_A S$ consists of two sets of symbols: syncategorematic punctuation symbols and denoting symbols from a set $\sigma$ of syntactic types. The set $\sigma$ includes four types, including one for function symbols that produce a term of a certain type based on a single argument of a base type.
 
+$Log_A S$ is a first-order language because the first argument of function symbols is restricted to base types. A $Log_A S$ alphabet is a union of four sets, including a signature set of symbols with designated syntactic types, a set of variables, a set of syncategorematic symbols, and a set of logical symbols.
 
-A $Log_A S$ alphabet is a union of four disjoint sets:
-$ \Omega \cup \Xi \cup \Sigma \cup \Lambda$.
-
-The set $\Omega$, the \textit{signature} of the language, is a nonempty set of constant and function symbols. Each symbol in the signature has a designated syntactic type from $\sigma$. $\Omega$  is
-what distinguishes one $LogA S$ language from another.
-
-The set $\Xi = \{x_i, t_i, s_i\}_{i \in \mathbb{N}}$ is a countably infinite set of variables, where$x_i \in \sigma_I, t_i \in \sigma_T$ and $s_i \in \sigma_S$. $\Sigma$ is a set
-of syncategorematic symbols, including the comma, various
-matching pairs of brackets and parentheses, and the symbol $\forall$.
-
-The set $\Lambda$ is the set of logical symbols of $Log_A S$, defined
-as the union of the following sets.
+The variables set is countably infinite and consists of variables with designated types from $\sigma$. The syncategorematic symbols set includes punctuation symbols such as brackets and parentheses, as well as the universal quantifier symbol $\forall$. The logical symbols set is the union of several sets of logical symbols.
 
 \begin{enumerate}
   \item $\neg \in \sigma_S \to \sigma_S$
@@ -137,8 +120,8 @@ lack thereof, of a state to change from holding to not holding, and the general 
 Three main types of states are \textit{eternal}, \textit{permanent}, and \textit{temporary}.
 
 \subsection{Eternal States}
-Eternal states do not start or cease; they either \textit{always} hold or \textit{never} hold. Sentences representing
-such states are the most temporally-stable.
+Eternal states are those that never start or end, and they either always hold or never hold.
+These types of states are the most stable over time, and sentences that represent them are the least likely to change in meaning.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{images/eternal-states.png}
@@ -154,15 +137,12 @@ The following sentences are examples of eternal states.
           changed, namely the believer’s state of mind. Whales did not become mammals; rather, the person
           would assume that they were and shall always be mammals.\cite{ismail2001reasoning}}
   \item God exists.
-  \item The date of John’s graduation is March 21st, 2001.
+  \item John's birthday is on the 21st of March.
 \end{enumerate}
 
 \begin{defn}
   $s \in \mathcal{S}$ is an \textit{eternal} if $\displaystyle \sum_{t \in \mathcal{T}} \mathfrak{h}(s, t) \leq \prod_{t \in \mathcal{T}} \mathfrak{h}(s, t)$.
 \end{defn}
-It follows from the above definition that, if $s$ is eternal, then $\mathfrak{h}(s, t) = \mathfrak{h}(s, t')$ for all $t, t' \in \mathcal{T}$.
-Thus, the notion of an eternal state’s holding at a particular time is rendered
-meaningless, or redundant; an eternal state simply holds (or not), period.
 
 \textsc{Eter} denotes the set of eternal states.
 
@@ -172,8 +152,9 @@ meaningless, or redundant; an eternal state simply holds (or not), period.
 \end{defn}
 \textsc{Atemp} denotes the set of atemporal states.
 \subsection{Permanent States}
-Unlike eternal states, permanent states may \textit{start} to hold. Once a permanent state starts to hold, it
-never ceases. The \textit{onset} referred to is the \textit{event} of the permanent state starting to hold.
+Permanent states differ from eternal states in that they may start to hold at some point.
+Once a permanent state begins, it will continue to hold indefinitely. The \textit{Onset} mentioned here refers to the event of the permanent state starting to hold.
+
 
 \begin{figure}[H]
   \centering
@@ -186,9 +167,7 @@ The following sentences are examples of permanent states.
 
 
 \begin{enumerate}
-  \item Fermat is dead.\footnote{In reality death is not permanent state,\textit{as in religion}, people believe that after death, there is life after death.
-          But in the sense that in our everyday reasoning, and for practical purposes, we think of death as a permanent state.
-          Thus, nobody had the idea of waiting for Fermat to come back to life to show them his proof of Fermat’s last theorem.}
+  \item John has died.
   \item John had turned 22.\footnote{There's a claim that the perfect aspect/tense always signals a permanent state a permanent states is the perfect}
   \item I had my bachelor degree.
 \end{enumerate}
@@ -232,7 +211,6 @@ The following sentences are examples of temporary states.
 
 \begin{itemize}
   \item I am crossing the street.
-  \item The litmus paper is turning red.
 \end{itemize}
 
 Temporary states are totally unconstrained and may, thus,
@@ -266,29 +244,29 @@ $\textsc{Trans} \subseteq \textsc{Temp}$
   \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+  \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
 
-%Shape: Rectangle [id:dp9438939353832179] 
-\draw  [fill=gray!20] (64.5,13.5) -- (424.5,13.5) -- (424.5,216.5) -- (64.5,216.5) -- cycle ;
-%Shape: Circle [id:dp6623230466810723] 
-\draw  [fill=gray!30] (68,132.5) .. controls (68,100.19) and (94.19,74) .. (126.5,74) .. controls (158.81,74) and (185,100.19) .. (185,132.5) .. controls (185,164.81) and (158.81,191) .. (126.5,191) .. controls (94.19,191) and (68,164.81) .. (68,132.5) -- cycle ;
-%Shape: Circle [id:dp16392927570144655] 
-\draw  [fill=gray!30] (185,132.5) .. controls (185,100.19) and (211.19,74) .. (243.5,74) .. controls (275.81,74) and (302,100.19) .. (302,132.5) .. controls (302,164.81) and (275.81,191) .. (243.5,191) .. controls (211.19,191) and (185,164.81) .. (185,132.5) -- cycle ;
-%Shape: Circle [id:dp6100961383336985] 
-\draw  [fill=gray!30] (302,132.5) .. controls (302,100.19) and (328.19,74) .. (360.5,74) .. controls (392.81,74) and (419,100.19) .. (419,132.5) .. controls (419,164.81) and (392.81,191) .. (360.5,191) .. controls (328.19,191) and (302,164.81) .. (302,132.5) -- cycle ;
+    %Shape: Rectangle [id:dp9438939353832179] 
+    \draw  [fill=gray!20] (64.5,13.5) -- (424.5,13.5) -- (424.5,216.5) -- (64.5,216.5) -- cycle ;
+    %Shape: Circle [id:dp6623230466810723] 
+    \draw  [fill=gray!30] (68,132.5) .. controls (68,100.19) and (94.19,74) .. (126.5,74) .. controls (158.81,74) and (185,100.19) .. (185,132.5) .. controls (185,164.81) and (158.81,191) .. (126.5,191) .. controls (94.19,191) and (68,164.81) .. (68,132.5) -- cycle ;
+    %Shape: Circle [id:dp16392927570144655] 
+    \draw  [fill=gray!30] (185,132.5) .. controls (185,100.19) and (211.19,74) .. (243.5,74) .. controls (275.81,74) and (302,100.19) .. (302,132.5) .. controls (302,164.81) and (275.81,191) .. (243.5,191) .. controls (211.19,191) and (185,164.81) .. (185,132.5) -- cycle ;
+    %Shape: Circle [id:dp6100961383336985] 
+    \draw  [fill=gray!30] (302,132.5) .. controls (302,100.19) and (328.19,74) .. (360.5,74) .. controls (392.81,74) and (419,100.19) .. (419,132.5) .. controls (419,164.81) and (392.81,191) .. (360.5,191) .. controls (328.19,191) and (302,164.81) .. (302,132.5) -- cycle ;
 
-% Text Node
-\draw (108,122) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Eter}};
-% Text Node
-\draw (226,126) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Prem}};
-% Text Node
-\draw (333,126) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Co-Prem}};
-% Text Node
-\draw (216,33) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Temp}};
+    % Text Node
+    \draw (108,122) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Eter}};
+    % Text Node
+    \draw (226,126) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Prem}};
+    % Text Node
+    \draw (333,126) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Co-Prem}};
+    % Text Node
+    \draw (216,33) node [anchor=north west][inner sep=0.75pt]   [align=center] {\textsc{Temp}};
 
 
-\end{tikzpicture}
+  \end{tikzpicture}
   \label{fig:venn}
 \end{figure}
 
