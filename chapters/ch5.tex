@@ -1,0 +1,241 @@
+\chapter{Log AT}
+
+A $Log_A T$ language is a set of terms partitioned into three base syntactic types
+
+$\sigma_S, \sigma_T, \sigma_{EC}, \sigma_{ET}$ and $ \sigma_I$.
+
+\begin{itemize}
+	\item $\sigma_S$ is the set of terms denoting states.
+	\item $\sigma_T$ is the set of terms denoting time points.
+	\item $\sigma_{EC}$ is the set of terms denoting event categories.
+	\item $\sigma_{ET}$ is the set of terms denoting event tokens.
+	\item $\sigma_I$ is the set of terms denoting anything else.
+\end{itemize}
+
+
+\section{Syntax}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \[
+% 	\sqsubseteq \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+
+% \[
+% 	 \sqsubset \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+
+% \[
+% 	\supset \subset \in \sigma_T \to \sigma_T \to \sigma_S
+% \]
+\begin{itemize}
+
+	\item
+	      \[
+		      \textsc{Occurs} \in \sigma_{ET} \to \sigma_T \to \sigma_T \to \sigma_S
+	      \]
+
+	\item
+	      \[
+		      \textsc{Cat} \in \sigma_{ET} \to \sigma_{EC} \to \sigma_S
+	      \]
+
+	\item
+	      \[
+		      \textsc{Onset} \in \sigma_S \to \sigma_{EC}
+	      \]
+
+	\item
+	      \[
+		      \textsc{Cease} \in \sigma_S \to \sigma_{EC}
+	      \]
+
+	\item
+	      \[
+		      \textsc{Clos} \in \sigma_{ET} \to \sigma_{ET} \to \sigma_{ET}
+	      \]
+
+	\item
+	      \[
+		      \textsc{Po} \in \sigma_S \to \sigma_{EC}
+	      \]
+
+	\item
+	      \[
+		      \textsc{Prog} \in \sigma_{EC} \to \sigma_S
+	      \]
+	\item \[
+		      \textsc{Complete} \in \sigma_{ET} \to \sigma_S
+	      \]
+	\item \[
+		      \textsc{Int} \in \sigma_{ET} \to \sigma_S
+	      \]
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \[
+% 	\tau_1 \sqsubseteq \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
+
+% \[
+% 	\tau_1 \sqsubset \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
+
+% \[
+% 	\tau_1 \supset \subset \tau_2 \in L_{\Omega}
+% \]
+% where $\tau_1, \tau_2 \in \sigma_T$.
+
+\[
+	\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}
+\]
+where $\tau_2, \tau_3 \in \sigma_T$  and $\tau_1 \in \sigma_{ET}$.
+
+\[
+	\textsc{Cat}(\tau_1, \tau_2) \in L_{\Omega}
+\]
+where $\tau_1 \in \sigma_{ET}$ and $\tau_2 \in \sigma_{EC}$.
+
+\[
+	\textsc{Onset}(\tau) \in L_{\Omega}
+\]
+where $\tau \in \sigma_S$.
+
+\[
+	\textsc{Cease}(\tau) \in L_{\Omega}
+\]
+where $\tau \in \sigma_S$.
+
+\[
+	\textsc{Clos}(\tau_1, \tau_2) \in L_{\Omega}
+\]
+where $\tau_1, \tau_2 \in \sigma_{ET}$.
+
+\[
+	\textsc{Po}(\tau) \in L_{\Omega}
+\]
+where $\tau \in \sigma_S$.
+
+\[
+	\textsc{Prog}(\tau) \in L_{\Omega}
+\]
+
+where $\tau \in \sigma_{EC}$.
+
+\[
+	\textsc{Complete}(\tau) \in L_{\Omega}
+\]
+
+where $\tau \in \sigma_{ET}$.
+
+\[
+	\textsc{Int}(\tau) \in L_{\Omega}
+\]
+
+where $\tau \in \sigma_{ET}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Semantics}
+
+\begin{defn}
+	A $Log_AT$ structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
+		\rangle$ where
+\end{defn}
+
+
+\begin{itemize}
+	\item $\mathcal{D}$,  the domain of discourse, is a set with four disjoint, non-
+	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
+	\item $\mathfrak{A}$
+
+	\item $\mathfrak{h}$
+	      % \item $\subseteq: \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
+	      % \begin{itemize}
+	      % 	\item $(t_1 \subseteq t_2) \cdot (t_2 \subseteq t_1) = \bot$ if $t_1 = t_2$
+	      % 	\item $[(t_1 \subseteq t_2) \cdot (t_2 \subseteq t_3)] + (t_1 \subseteq t_3) = t_1 \subseteq t_3$
+	      % 	\item $t_1 \subseteq t_1 = \top$.
+	      % \end{itemize}
+	      % \item $\subset: \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
+	      % \item $>< : \mathcal{T} \times \mathcal{T} \to \mathcal{S}$
+
+	\item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T}^2 \to \textsc{Eter}$ where
+	      \begin{itemize}
+		      \item $\mathfrak{o}(e, t_1, t_2) \cdot (t_2 \prec t_1) = \bot$
+		      \item $\mathfrak{o}(e, t_1, t_2) \cdot \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4$
+		            %   \item $\displaystyle \sum_{t\in T} \mathfrak{h}( \mathfrak{o}(e, t_1, t_2), t) \leq \prod_{t\in T} \mathfrak{h}( \mathfrak{o}(e, t_1, t_2), t)$
+	      \end{itemize}
+	\item $\mathcal{ET}$ is a set partitioned by two countable subsets $\mathcal{ET}^d$ and $\mathcal{ET}^p$.
+	\item $\mathcal{EC}$ is a set partitioned by two countable subsets $\mathcal{EC}^d$ and $\mathcal{EC}^p$.
+	\item $\mathfrak{c} : \mathcal{ET} \times \mathcal{EC} \to \textsc{Temp}$
+	\item $\uparrow :  \textsc{Temp} \cup \textsc{Prem} \to \mathcal{EC}^p$
+	\item $\downarrow :  \textsc{Temp} \cup \textsc{Co-Prem} \to \mathcal{EC}^p$
+	\item $\mathfrak{cl} : \mathcal{ET}^p \times \mathcal{ET}^p \to^{\text{Onto}} \mathcal{ET}^d$
+	      \begin{itemize}
+		      %   \item need to model durative events and punctual events.
+		      \item ($\mathfrak{o}(\mathfrak{cl}(e_1, e_2), t_1, t_4))  \cdot (\exists s, t_3, t_4)[
+				            \textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) ] = \top$
+	      \end{itemize}
+	\item $\mathfrak{po} : \textsc{Temp} \to \mathcal{EC}^d$
+	      \begin{itemize}
+		      \item $\textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) \cdot \mathfrak{c}(\mathfrak{cl}(e_1, e_2), \mathfrak{po}(s)) = \top$.
+	      \end{itemize}
+	\item $\mathfrak{prog} : \mathcal{EC}^d \to \textsc{Temp}$
+	      \begin{itemize}
+		      \item \[
+			            [
+					            \textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) \cdot \mathfrak{c}(\mathfrak{cl} (e_1, e_2), ec_d)
+				            ] \leq  \mathfrak{h}(\mathfrak{prog}(ec_d), t_3, t_4)\]
+	      \end{itemize}
+	\item $\mathfrak{complete} : \mathcal{ET} \to \textsc{Prem}$
+	      \begin{itemize}
+		      \item $\displaystyle \mathfrak{h}(\mathfrak{complete}(e), t_1, t_2) \leq
+			            \sum_{ t_3, t_4 \in \mathcal{T}}[\mathfrak{o}(e, t_3, t_4) \cdot (t_3 < t_2)] $
+	      \end{itemize}
+	\item $\mathfrak{int} : \mathcal{E}^{d} \to \textsc{Temp}$
+	      \begin{itemize}
+		      \item $\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top$.
+	      \end{itemize}
+\end{itemize}
+
+\subsection{Macros}
+\begin{itemize}
+	\item \[\textsc{NoOcc}(ec, t_1, t_2) =_{\text{def}}\]
+	      \[ -\sum_{\substack{{e \in \mathcal{ET}} \\ t_3, t_4 \in \mathcal{T}}}
+		      [\mathfrak{c}(e, ec) \cdot (t_1 < t_3) \cdot (t_4 < t_2) \cdot \mathfrak{o}(e, t_3, t_4)]\]
+	\item \[
+		      \textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) =_{\text{def}}
+	      \]
+	      \[
+		      \mathfrak{c}(e_1, \uparrow s) \cdot \mathfrak{c}(e_2, \downarrow s) \cdot \mathfrak{o}(e_1, t_1, t_2) \cdot \mathfrak{o}(e_2, t_3, t_4) \cdot (t_3 < t_1) \cdot \textsc{NoOcc}(\downarrow s, t_2, t_3)
+	      \]
+\end{itemize}
+
+\begin{defn}Valuation function
+	\begin{itemize}
+		\item  \textlbrackdbl $\textsc{Occurs}(\tau_1, \tau_2, \tau_3)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{o}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_3$\textrbrackdbl$^{\mathcal{V}}$)
+
+		\item  \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{c}$(\textlbrackdbl $\tau_1$ \textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+		\item \textlbrackdbl $\textsc{Onset}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\uparrow$(\textlbrackdbl $\tau$ \textrbrackdbl$^{\mathcal{V}}$)
+
+		\item \textlbrackdbl $\textsc{Cease}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\downarrow$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+		\item \textlbrackdbl $\textsc{Clos}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{cl}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$,
+		      \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+		\item \textlbrackdbl $\textsc{Po}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{po}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+		\item \textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{prog}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+		\item \textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		      = $\mathfrak{complete}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+
+	\end{itemize}
+\end{defn}
