@@ -57,6 +57,8 @@ Intuitively, $\mathfrak{o}(e_1, t_1, t_2)$ means that the event token $e$ occurs
             \leq - \mathfrak{o}(e, t_3, t_4)].
         \label{eq:events_heterogeneous}
     \end{equation}
+\end{theorem}
+\begin{theorem}
     \begin{equation}
         \mathfrak{o}(e, t_1, t_2) \leq \prod_{t_3, t_4 \in \mathcal{T}} [(t_3 < t_1) \cdot (t_2 < t_4)
             \leq - \mathfrak{o}(e, t_3, t_4)].
@@ -64,7 +66,7 @@ Intuitively, $\mathfrak{o}(e_1, t_1, t_2)$ means that the event token $e$ occurs
     \end{equation}
 \end{theorem}
 
-Both Equation~\ref{eq:events_heterogeneous} and Equation~\ref{eq:events_heterogeneous2} follows from the 
+Both Equation~\ref{eq:events_heterogeneous} and Equation~\ref{eq:events_heterogeneous2} follows from the
 axiom~\ref{ax:occurs_once}.
 
 That means that if an event occurs over some interval, it cannot occur over any super or sub-interval.
@@ -80,9 +82,160 @@ Let $\mathcal{EC}$ be the set of event categories. We will use the following fun
     \textsc{Cat}: \mathcal{ET} \times \mathcal{EC} \to \mathcal{S}
 \]
 
-Unlike $\textsc{Occurs}$, $\textsc{Cat}$ does not always return eternal states. 
+\begin{defn}
+    \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{c}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+\end{defn}
 
-TODO: add justification for this.
+Unlike $\textsc{Occurs}$, $\textsc{Cat}$ does not always return eternal states.
+
+//TODO: add justification for this.
 %%TODO: add justification for this.
 
+An event token can belong to multiple categories, thus $\textsc{Cat}$ is a many-to-many relation,a as for example an event of
+\textit{driving} can be an event of \textit{commuting} at the same time.
 
+\section{Punctual and Durative Events}
+
+The sort $\mathcal{ET}$ for event tokens is partitioned into two subsets: $\mathcal{ET}_d$ for durative events and $\mathcal{ET}_p$ for punctual events.
+Similarly, the set of event categories $\mathcal{EC}$ is partitioned into $\mathcal{EC}_d$ and $\mathcal{EC}_p$.
+
+Punctual events is the \textit{onset} or \textit{cessation} of some state. On the other hand, a durative event is made up
+of the punctual event event of some state starting to hold, the state's holding for some time, and the punctual event of the state ceasing.
+
+A state may be associated with event categories $\uparrow s$ and $\downarrow s$ for the onset and cessation of the state, respectively.
+
+\begin{defn}
+    \begin{equation}
+        \textsc{Onset} : \textsc{Perm} \cup \textsc{Temp} \to^{into} \mathcal{EC}_p
+    \end{equation}
+\end{defn}
+\begin{defn}
+    \begin{equation}
+        \textsc{Cease} : \textsc{Co-Perm} \cup \textsc{Temp} \to^{into} \mathcal{EC}_p
+    \end{equation}
+\end{defn}
+
+\begin{defn}
+    \[
+        \textlbrackdbl \textsc{Onset}(\tau)\textrbrackdbl^{\mathcal{V}}
+        = \uparrow(\textlbrackdbl \tau \textrbrackdbl^{\mathcal{V}})
+    \]
+\end{defn}
+\begin{defn}
+    \[
+        \textlbrackdbl \textsc{Cease}(\tau)\textrbrackdbl^{\mathcal{V}}
+        = \downarrow(\textlbrackdbl \tau \textrbrackdbl^{\mathcal{V}})
+    \]
+
+\end{defn}
+
+Intuitively, $\uparrow s$ is equivalent to $\downarrow(-s)$, and $\downarrow s$ is equivalent to $\uparrow(-s)$, Let's add the following axioms to our theory.
+\begin{axiom}
+    \begin{equation}
+        \mathfrak{c}(e_p, \uparrow s) \cdot (\mathfrak{c}(e_p, \downarrow(- s))) = \top.
+    \end{equation}
+\end{axiom}
+\begin{axiom}\label{ax:cessation}
+    \begin{equation}
+        \mathfrak{c}(e_p, \downarrow s) \cdot (\mathfrak{c}(e_p, \uparrow(- s))) = \top.
+    \end{equation}
+\end{axiom}
+
+Using the above axioms, we can prove the following theorem which suggests that the arrow flip with each negation.
+
+\begin{theorem}\label{thm:arrow_flip}
+    \begin{equation}
+        \mathfrak{c}(e_p, \uparrow s) \cdot \mathfrak{c}(e_p, \downarrow (-- s)) = \top.
+    \end{equation}
+\end{theorem}
+\begin{theorem}
+    \begin{equation}
+        \mathfrak{c}(e_p, \downarrow s) \cdot \mathfrak{c}(e_p, \uparrow (-- s)) = \top.
+    \end{equation}
+\end{theorem}
+
+Both axioms and theorems above are not enough to tell how the occurrence of onsets and cessations are related to states.
+Intuitively, any
+transition is immediately preceded by a state and immediately followed by its complement (or vice versa).
+
+\begin{axiom}\label{ax:transition}
+    \begin{equation}
+        \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \uparrow s) \leq \sum_{t_3, t_4 \in \mathcal{T}}[(t_2 < t_3) \cdot \mathfrak{h}(s, t_3, t_4)]
+    \end{equation}
+\end{axiom}
+\begin{axiom}
+    \begin{equation}
+        \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \uparrow s) \leq \sum_{t_3, t_4 \in \mathcal{T}} [(t_4 < t_1) \cdot \mathfrak{h}(-s, t_3, t_4)]
+    \end{equation}
+\end{axiom}
+
+The above axioms was for the onset of a state. We can similarly prove theorems for the cessation of a state.
+
+\begin{theorem}\label{thm:cessation}
+    \begin{equation}
+        \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \downarrow s) \leq \sum_{t_3, t_4 \in \mathcal{T}}[(t_2 < t_3) \cdot \mathfrak{h}(s, t_3, t_4)]
+    \end{equation}
+\end{theorem}
+\begin{theorem}\label{thm:cessation_2}
+    \begin{equation}
+        \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \downarrow s) \leq \sum_{t_3, t_4 \in \mathcal{T}} [(t_4 < t_1) \cdot \mathfrak{h}(-s, t_3, t_4)]
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+        \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \downarrow s)                                                                                     \\
+         & = \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \uparrow (-s))  \hspace{0.29\linewidth  }  \text{Axiom~\ref{ax:cessation}}                   \\
+         & \leq \sum_{t_3, t_4 \in \mathcal{T}}[(t_2 < t_3) \cdot \mathfrak{h}(-(-s), t_3, t_4)] \hspace{0.204 \linewidth}   \text{Axiom~\ref{ax:transition}} \\
+         & \leq \sum_{t_3, t_4 \in \mathcal{T}}[(t_2 < t_3) \cdot \mathfrak{h}(s, t_3, t_4)]. \hspace{0.255 \linewidth}   \text{Theorem~\ref{thm:arrow_flip}}
+    \end{align*}
+\end{proof}
+
+A sufficient condition for the occurrence of onsets is that a state does not hold followed by its complement. We can capture this condition by the following axiom.
+
+\begin{axiom}\label{ax:transition_2}
+    \begin{equation}
+        - \mathfrak{h}(s, t_1, t_2) \cdot \mathfrak{h}(s, t_3, t_4) \cdot (t_2 < t_3)\leq \mathfrak{o}(e_p, t_2, t_3) \cdot \mathfrak{c}(e_p, \uparrow s).
+    \end{equation}
+\end{axiom}
+
+We can prove a similar theorem for the cessation of a state.
+
+\begin{theorem}\label{thm:cessation_3}
+    \begin{equation}
+        \mathfrak{h}(s, t_1, t_2) \cdot - \mathfrak{h}(s, t_3, t_4) \cdot (t_2 < t_3)\leq \mathfrak{o}(e_p, t_2, t_3) \cdot \mathfrak{c}(e_p, \downarrow s).
+    \end{equation}
+    
+\end{theorem}
+
+\begin{proof} 
+    \begin{align*}
+        \mathfrak{h}(s, t_1, t_2) \cdot - \mathfrak{h}(s, t_3, t_4) \cdot (t_2 < t_3) \\
+        &= \mathfrak{h}(-- s, t_1, t_2) \cdot - \mathfrak{h}(s, t_3, t_4) \cdot (t_2 < t_3) \\
+        &= - \mathfrak{h}(- s, t_1, t_2) \cdot - \mathfrak{h}(s, t_3, t_4) \cdot (t_2 < t_3) \\
+        &= - \mathfrak{h}(s, t_1, t_2)   \cdot \mathfrak{h}(-s, t_3, t_4) \cdot (t_2 < t_3) \\
+        & \leq \mathfrak{o}(e_p, t_2, t_3) \cdot \mathfrak{c}(e_p, \uparrow - s) \hspace{0.06 \linewidth} \text{Axiom~\ref{ax:transition_2}} \\
+        &\leq \mathfrak{o}(e_p, t_2, t_3) \cdot \mathfrak{c}(e_p, \downarrow s) \hspace{0.06 \linewidth}  \ \ \text{Theorem~\ref{thm:arrow_flip}}
+    \end{align*}
+\end{proof}
+
+We can add more restrictions based on the type of state. For example, if you are considering
+a $\textsc{Prem}$ state, we can prove once an onset happens, no other onset can happen.
+
+\begin{theorem}
+    \begin{equation}
+        \mathfrak{o}(e_{p1}, t_1, t_2) \cdot \mathfrak{c}(e_p, \uparrow s^{p}) \leq 
+        \prod_{\substack{e_{p2} \in \mathcal{E}_p \\ t_3, t_4 \in \mathcal{T}}}[(t_2 < t_3) \cdot \mathfrak{o}(e_{p2}, t_3, t_4) ]
+        \leq - \mathfrak{c}(e_{p2}, \uparrow s^{p})
+    \end{equation}
+\end{theorem}
+
+Similarly, we can do the mirror for $\textsc{Co-Perm}$ states.
+
+\begin{theorem}
+    \begin{equation}
+        \mathfrak{o}(e_{p1}, t_1, t_2) \cdot \mathfrak{c}(e_p, \downarrow s^{cp}) \leq 
+        \prod_{\substack{e_{p2} \in \mathcal{E}_p \\ t_3, t_4 \in \mathcal{T}}}[(t_2 < t_3) \cdot \mathfrak{o}(e_{p2}, t_3, t_4) ]
+        \leq - \mathfrak{c}(e_{p2}, \downarrow s^{cp})
+    \end{equation}
+\end{theorem}
