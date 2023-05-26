@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, openany]{book}%, oneside
+\documentclass[12pt, a4paper]{book}%, oneside
 
 \usepackage[headings]{fullpage}
 \usepackage{setspace}
@@ -37,24 +37,18 @@
 \usepackage{urwchancal}
 
 
+\setlength{\parindent}{0pt}
 
-
-% \setlength{\parindent}{0pt}
-
-% \newcommand{\submissionDay}{XX}
-% \newcommand{\submissionMonth}{July}
-% \newcommand{\submissionYear}{20XX}
-% \newcommand{\submissionDate}{\submissionDay~\submissionMonth,~\submissionYear}
-% \newcommand{\typeOfThesis}{Bachelor Thesis}
+\newcommand{\submissionDay}{1}
+\newcommand{\submissionMonth}{July}
+\newcommand{\submissionYear}{2023}
+\newcommand{\submissionDate}{\submissionDay~\submissionMonth,~\submissionYear}
+\newcommand{\typeOfThesis}{Bachelor Thesis}
 %
-% \newcommand{\titleOfThesisOne}{Bachelor Thesis Title}
+\newcommand{\titleOfThesisOne}{Adding Events to $Log_AS$}
 %
-% \newcommand{\authorOfThesis}{Author}
-% \newcommand{\supervisorOne}{Sup 1}
-% \newcommand{\supervisorTwo}{Sup 2}
-% \newcommand{\supervisorThree}{Sup 3}
-%
-% \newcommand{\includefig}[4]{
+\newcommand{\authorOfThesis}{Ibrahim Abou Elenein}
+\newcommand{\supervisorOne}{Prof Haythem Ismail}
 %     \begin{figure}[ht]
 %      \centering
 %       \includegraphics[width=#1\textwidth]{images/#2}
@@ -93,28 +87,29 @@
 
 
 
-% \ifpdf
-% \pdfinfo {
-% 	/Author (\authorOfThesis)
-% 	/Title (\titleOfThesisOne)
-% 	/Subject (\typeOfThesis)
-% 	/Keywords ()
-% 	/CreationDate (D:20090707085533)
-% }
-% \fi
+\ifpdf
+\pdfinfo {
+	/Author (\authorOfThesis)
+	/Title (\titleOfThesisOne)
+	/Subject (\typeOfThesis)
+	/Keywords ()
+	/CreationDate (D:20090707085533)
+}
+\fi
 
 \begin{document}
-% \overfullrule=5pt
-%\pagestyle{plain}
+\overfullrule=5pt
+\pagestyle{plain}
 \pagenumbering{Roman}
 
-% \include{GUC_TitlePage}
+\include{GUC_TitlePage}
 
-% \include{acknowledgments}
+\include{acknowledgments}
+\include{dedication}
 
-% \include{abstract}
+\include{abstract}
 \tableofcontents
-% \addcontentsline{toc}{chapter}{Contents}
+\addcontentsline{toc}{chapter}{Contents}
 \clearpage
 
 \pagestyle{headings}
@@ -137,7 +132,8 @@
 \include{chapters/ch3}
 \include{chapters/ch4}
 \include{chapters/ch5}
-% \include{future_work}
+\include{chapters/appendix}
+\include{future_work}
 % \include{appendix}
 
 \bibliographystyle{plain}
