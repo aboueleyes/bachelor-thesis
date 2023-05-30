@@ -1,0 +1,15 @@
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+
+In extending the ontology of events, I have taken a simple and straightforward approach by augmenting the existing $Log_A$S language.
+Within this enriched ontology, I have carefully considered and delineated two fundamental types of events: punctual events and durative events. These categories allow for a comprehensive understanding of various temporal phenomena.
+
+A key aspect of my research involves exploring the intricate relationship between events and states.
+ By examining how events induce changes in states, I aim to elucidate the intricate dynamics and interdependencies that govern the temporal progression of systems. Through this analysis, I unveil the underlying mechanisms through which events shape and transform states.
+
+Additionally, I delve into the realm of inference, showcasing how events can be inferred from the observable changes in states.
+By establishing connections between state alterations and corresponding events, I offer insights into the deductive aspects of temporal ontologies. 
+This inference mechanism not only provides a deeper comprehension of the causal relationships between events and states but also enables the extraction of valuable information from observed changes.
+
+By expanding the scope of $Log_A$S and incorporating these insights into my research, I seek to contribute to the development of a more comprehensive and robust framework for reasoning about temporal ontologies. Ultimately, this endeavor aims to enhance our understanding of events, states, and their intricate interactions, enabling more sophisticated analyses and applications in various domains.

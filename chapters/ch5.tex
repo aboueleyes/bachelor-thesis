@@ -1,6 +1,6 @@
 \chapter{Log AT}
 
-A $Log_A T$ language is a set of terms partitioned into three base syntactic types
+A $Log_A$T language is a set of terms partitioned into three base syntactic types
 
 $\sigma_S, \sigma_T, \sigma_{EC}, \sigma_{ET}$ and $ \sigma_I$.
 
@@ -141,14 +141,12 @@ where $\tau \in \sigma_{ET}$.
 \section{Semantics}
 
 \begin{defn}
-	A $Log_AT$ structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
+	A $Log_A$T structure is a tuple $\langle \mathcal{D},\mathfrak{A}, \mathfrak{h}, \mathfrak{o}, \mathfrak{c}, <
 		\rangle$ where
 \end{defn}
 
 
 \begin{itemize}
-	\item $\mathcal{D}$,  the domain of discourse, is a set with four disjoint, non-
-	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
 	\item $\mathfrak{A}$
 
 	\item $\mathfrak{h}$
@@ -189,15 +187,15 @@ where $\tau \in \sigma_{ET}$.
 					            \textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) \cdot \mathfrak{c}(\mathfrak{cl} (e_1, e_2), ec_d)
 				            ] \leq  \mathfrak{h}(\mathfrak{prog}(ec_d), t_3, t_4)\]
 	      \end{itemize}
-	\item $\mathfrak{complete} : \mathcal{ET} \to \textsc{Prem}$
-	      \begin{itemize}
-		      \item $\displaystyle \mathfrak{h}(\mathfrak{complete}(e), t_1, t_2) \leq
-			            \sum_{ t_3, t_4 \in \mathcal{T}}[\mathfrak{o}(e, t_3, t_4) \cdot (t_3 < t_2)] $
-	      \end{itemize}
-	\item $\mathfrak{int} : \mathcal{E}^{d} \to \textsc{Temp}$
-	      \begin{itemize}
-		      \item $\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top$.
-	      \end{itemize}
+	% \item $\mathfrak{complete} : \mathcal{ET} \to \textsc{Prem}$
+	%       \begin{itemize}
+	% 	      \item $\displaystyle \mathfrak{h}(\mathfrak{complete}(e), t_1, t_2) \leq
+	% 		            \sum_{ t_3, t_4 \in \mathcal{T}}[\mathfrak{o}(e, t_3, t_4) \cdot (t_3 < t_2)] $
+	%       \end{itemize}
+	% \item $\mathfrak{int} : \mathcal{E}^{d} \to \textsc{Temp}$
+	%       \begin{itemize}
+	% 	      \item $\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top$.
+	%       \end{itemize}
 \end{itemize}
 
 \subsection{Macros}
@@ -234,8 +232,8 @@ where $\tau \in \sigma_{ET}$.
 		      = $\mathfrak{po}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
 		\item \textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
 		      = $\mathfrak{prog}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
-		\item \textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-		      = $\mathfrak{complete}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+		% \item \textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+		%       = $\mathfrak{complete}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
 
 	\end{itemize}
 \end{defn}

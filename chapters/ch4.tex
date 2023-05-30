@@ -1,6 +1,6 @@
 \chapter{Events}
 
-We have only considered \textit{states} in our representation using $Log_A S$. However, states alone cannot represent certain situations, such as the distinction between the following two sentences:
+We have only considered \textit{states} in our representation using $Log_A$S. However, states alone cannot represent certain situations, such as the distinction between the following two sentences:
 
 \begin{enumerate}[label=(\arabic*)]
 	\item I ate an apple.
@@ -14,7 +14,7 @@ We have only considered \textit{states} in our representation using $Log_A S$. H
 Sentence (1) uses the perfective aspect and presents the situation as a whole, finished event, while sentence (2) uses the imperfective aspect and focuses on the ongoing nature of the situation without indicating whether it has ended.
 
 To represent events, we need to extend our language. Sentence~\ref{eq:ate} represents a state, but we need to represent an event, so we need to introduce events into our language
-which we will call $Log_A T$.
+which we will call $Log_A$T.
 
 \section{Tokens and Categories of Events}
 \subsection{Event Tokens}
@@ -31,7 +31,11 @@ $$\mathfrak{o} : \mathcal{ET} \times \mathcal{T} \times \mathcal{T} \to \textsc{
 	\item
 	      Each occurrence is unique, meaning that an event token occurs only once.
 	      \begin{equation}\label{ax:occurs_once}
-		      \prod_{\substack{e \in \mathcal{ET} \\ t_1, t_2, t_3, t_4 \in \mathcal{T}}} \mathfrak{o}(e, t_1, t_2) \cdot \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4
+		      \prod\footnote{
+			      Here I use this notation of having multiple quantifiers in a single axiom to make the axiom more readable.
+			      But this shorthand notation is equivalent to
+			      $ \displaystyle \prod_{e \in \mathcal{ET}} \prod_{t_1 \in \mathcal{T}}
+				      \prod_{t_2 \in \mathcal{T}}\prod_{t_2 \in \mathcal{T}}\prod_{t_3 \in \mathcal{T}}$}_{\substack{e \in \mathcal{ET} \\ t_1, t_2, t_3, t_4 \in \mathcal{T}}} \mathfrak{o}(e, t_1, t_2) \cdot \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4
 	      \end{equation}
 	\item
 	      Intuitively, $\mathfrak{o}(e_1, t_1, t_2)$ means that the event token $e$ occurs at some time between $t_1$ and $t_2$.
@@ -40,7 +44,7 @@ $$\mathfrak{o} : \mathcal{ET} \times \mathcal{T} \times \mathcal{T} \to \textsc{
 		      \prod_{\substack{e_d \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(e_d, t_1, t_2) \cdot (t_2 < t_1) = \bot
 	      \end{equation}
 	      \begin{equation}
-		      \prod_{\substack{e_p \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(e_p, t_1, t_2) \leq t_2 = t_1.
+		      \prod_{\substack{e_p \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(e_p, t_1, t_2) \cdot (t_2 = t_1) = \bot \quad \text{for every} \quad t_1 \neq t_2
 	      \end{equation}
 \end{itemize}
 
@@ -94,8 +98,8 @@ Let $\sigma_\mathcal{EC}$ be the sort of event categories. We will use the follo
 \[
 	\textsc{Cat}: \sigma_\mathcal{ET} \to \sigma_\mathcal{EC} \to \sigma_\mathcal{S}
 \]
-$$\mathfrak{c} : \mathcal{ET}^p \times \mathcal{EC}^p \to \textsc{Temp}$$
-$$\mathfrak{c} : \mathcal{ET}^d \times \mathcal{EC}^d \to \textsc{Temp}$$
+$$\mathfrak{c} : \mathcal{ET}_p \times \mathcal{EC}_p \to \textsc{Temp}$$
+$$\mathfrak{c} : \mathcal{ET}_d \times \mathcal{EC}_d \to \textsc{Temp}$$
 
 \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{c}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
 
@@ -115,14 +119,14 @@ of the punctual event of some state starting to hold, the state's holding for so
 A state may be associated with event categories $\uparrow s$ and $\downarrow s$ for the onset and cessation of the state, respectively.
 
 \begin{equation}
-	\textsc{Onset} : \textsc{Perm} \cup \textsc{Temp} \to^{into} \mathcal{EC}_p
+	\textsc{Onset} : \sigma_{\mathcal{S}} \to \sigma_{\mathcal{EC}}
 \end{equation}
 \begin{equation}
-	\textsc{Cease} : \textsc{Co-Perm} \cup \textsc{Temp} \to^{into} \mathcal{EC}_p
+	\textsc{Cease} : \sigma_{\mathcal{S}} \to \sigma_{\mathcal{EC}}
 \end{equation}
 
-$$\uparrow :  \textsc{Temp} \cup \textsc{Perm} \to \mathcal{EC}^p$$
-$$\downarrow :  \textsc{Temp} \cup \textsc{Co-Perm} \to \mathcal{EC}^p$$
+$$\uparrow :  \textsc{Temp} \cup \textsc{Perm} \to^{into} \mathcal{EC}_p$$
+$$\downarrow :  \textsc{Temp} \cup \textsc{Co-Perm} \to^{into} \mathcal{EC}_p$$
 Intuitively, $\uparrow s$ is equivalent to $\downarrow(-s)$, and $\downarrow s$ is equivalent to $\uparrow(-s)$. Let us add these restrictions on the semantics.
 \begin{equation}
 	\prod_{\substack{e_p \in \mathcal{ET}_p \\ s \in \mathcal{S}}} \mathfrak{c}(e_p, \uparrow s) = (\mathfrak{c}(e_p, \downarrow(- s))).
@@ -192,7 +196,7 @@ The above restrictions were for the onset of a state. We can similarly prove the
 		 & = \mathfrak{o}(e_p, t_1, t_2) \cdot \mathfrak{c}(e_p, \uparrow (-s))  \cdot
 		\sum_{t_3 \in \mathcal{T}} \prod_{t_2 \in \mathcal{T}} (t_1 < t_2)         \text{~\ref{ax:cessation}} \\
 		 & \leq \mathfrak{h}(-(-s), t_2, t_3) \hspace{0.31 \textwidth}   \text{~\ref{ax:transition}}          \\
-		 & \leq  \mathfrak{h}(s, t_2, t_).  \hspace{0.27 \textwidth }  \text{Theorem~\ref{thm:arrow_flip}}
+		 & \leq  \mathfrak{h}(s, t_2, t_3).  \hspace{0.27 \textwidth }  \text{Theorem~\ref{thm:arrow_flip}}
 	\end{align*}
 \end{proof}
 
@@ -275,49 +279,48 @@ than once.
 \section{Temporal Closure}
 A durative event corresponds to some temporary state starting to hold, holding for a while, and
 then ceasing to hold.
-
 The closure maps an onset-cessation pair of some state to a durative event of $s$ maximally holding for a while.
 
-To formalize the above intuition, we define these propositions.
+To formalize the above intuition, we introduce the following abbreviations.
 \begin{itemize}
 	\item \[\textsc{NoOcc}(ec, t_1, t_2) =_{\text{def}}\]
 	      \[ -\sum_{\substack{{e \in \mathcal{ET}} \\ t_3, t_4 \in \mathcal{T}}}
 		      [\mathfrak{c}(e, ec) \cdot (t_1 < t_3) \cdot (t_4 < t_2) \cdot \mathfrak{o}(e, t_3, t_4)]\]
 	\item \[
-		      \textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) =_{\text{def}}
+		      \textsc{OCpair}(e_1, e_2, s, t_1, t_2) =_{\text{def}}
 	      \]
 	      \[
-		      \mathfrak{c}(e_1, \uparrow s) \cdot \mathfrak{c}(e_2, \downarrow s) \cdot \mathfrak{o}(e_1, t_1, t_2) \cdot \mathfrak{o}(e_2, t_3, t_4) \cdot (t_3 < t_1) \cdot \textsc{NoOcc}(\downarrow s, t_2, t_3)
+		      \mathfrak{c}(e_1, \uparrow s) \cdot \mathfrak{c}(e_2, \downarrow s) \cdot \mathfrak{o}(e_1, t_1, t_1) \cdot \mathfrak{o}(e_2, t_2, t_2) \cdot
+		      (t_1 < t_2) \cdot \textsc{NoOcc}(\downarrow s, t_1, t_2)
 	      \]
 \end{itemize}
 
 Let's introduce the $\textsc{Clos}$ relation
 
-\begin{defn}
-	$\textsc{Clos} : \mathcal{ET}^p \times \mathcal{ET}^p \to^{\text{Onto}} \mathcal{ET}^d$
-\end{defn}
+$$\textsc{Clos} : \sigma_\mathcal{ET} \to \sigma_\mathcal{ET} \to \sigma_\mathcal{ET}$$
 
-\begin{defn}
-	\textlbrackdbl $\textsc{Clos}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{cl}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
-\end{defn}
+$$\mathfrak{cl} : \mathcal{ET}_p \times \mathcal{ET}_p \to^{\text{Onto}} \mathcal{ET}_d$$
 
-we need to axiomatize  $\textsc{Clos}$  so that it only applies to onset-cessation pairs\footnote{We don't have a special sort for onset-cessation.}.
+\[ \textlbrackdbl \textlbrackdbl\textsc{Clos}(\tau_1, \tau_2)\textrbrackdbl\textrbrackdbl^{\mathcal{V}} =
+	\mathfrak{cl}(\textlbrackdbl \textlbrackdbl\tau_1\textrbrackdbl \textrbrackdbl^{\mathcal{V}},
+	\textlbrackdbl \textlbrackdbl \tau_3\textrbrackdbl \textrbrackdbl^{\mathcal{V}})\]
 
-\begin{axiom}\label{ax:onset_cessation_pair}
-	\begin{equation}
-		\mathfrak{o}(\mathfrak{cl}(e_{p1}, e_{p2}), t_1, t_2) \cdot \sum_{\substack{s \in \mathcal{S} \\ t_3, t_4 \in \mathcal{T}}}[ \textsc{OCpair}(e_{p1}, e_{p2}, s, t_1, t_2, t_3, t_4) ] = \top
-	\end{equation}
-\end{axiom}
+we need to restrict  $\mathfrak{cl}$  so that it only applies to onset-cessation pairs\footnote{We don't have a special sort for onset-cessation.}.
 
-Using Axiom~\ref{ax:occurs_once} and Axiom~\ref{ax:onset_cessation_pair} and the fact that $\textsc{Clos}$ is onto, we can prove the following theorem.
+\begin{equation}\label{ax:onset_cessation_pair}
+	\prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(\mathfrak{cl}(e_{p1}, e_{p2}), t_1, t_2) =
+	\sum_{\substack{s \in \mathcal{S}}}[ \textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2]
+\end{equation}
+
+Using~\ref{ax:occurs_once} and~\ref{ax:onset_cessation_pair} and the fact that $\mathfrak{cl}$ is onto, we can prove the following theorem.
 
 \begin{theorem}\label{thm:durative_events_temporal_pattern}
 	\begin{equation}
 		\begin{gathered}
-			\sum_{e_d \in \mathcal{ET}_d}[\mathfrak{o}(e_d, t_1, t_2)] \cdot  \\
-			\sum_{\substack{e_{p1}, e_{p2} \in \mathcal{E}_p \\ t_3, t_4, t_5, t_6 \in \mathcal{T} \\ s \in \mathcal{S}}}[
-				\textsc{OCpair}(e_{p1}, e_{p2}, s, t_3, t_4, t_5, t_6)
-			] = \top
+			\sum_{e_d \in \mathcal{ET}_d}[\mathfrak{o}(e_d, t_1, t_2)] \leq  \\
+			\sum_{\substack{e_{p_1}, e_{p_2} \in \mathcal{E}_p \\ t_3, t_4 \in \mathcal{T} \\ s \in \mathcal{S}}}[
+				\textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_3, t_4)
+			]
 		\end{gathered}
 	\end{equation}
 \end{theorem}
@@ -329,12 +332,12 @@ This theorem says that durative events are associated with a temporal pattern of
 	\begin{align*}
 		\sum_{e_d \in \mathcal{ET}_d}[\mathfrak{o}(e_d, t_1, t_2)]                                                 \\
 		 & = \mathfrak{o}(e_d, t_1, t_2)                                                                           \\
-		 & = \mathfrak{o}(\mathfrak{cl}(e_{p1}, e_{p2}), t_1, t_2) \ \text{Given} \ \textsc{Clos} \ \text{is onto} \\
-		 & \cdot \sum_{\substack{s \in \mathcal{S}                                                                 \\ t_3, t_4 \in \mathcal{T}}}[\textsc{OCpair}(e_{p1}, e_{p2}, s, t_3, t_4, t_5, t_6)]= \top. \ \text{Given Axiom~\ref{ax:onset_cessation_pair}}
+		 & = \mathfrak{o}(\mathfrak{cl}(e_{p1}, e_{p2}), t_1, t_2) \ \text{Given} \ \mathfrak{cl} \ \text{is onto} \\
+		 & = \sum_{\substack{s \in \mathcal{S}                                                                     \\ t_3, t_4 \in \mathcal{T}}}[\textsc{OCpair}(e_{p1}, e_{p2}, s, t_3, t_4)] \ \text{Given~\ref{ax:onset_cessation_pair}}
 	\end{align*}
 \end{proof}
 
-\section{Packaging \& Grinding}
+\section{Packaging and Grinding}
 We know about a given durative event that is an event of some state holding for a while. For example, consider the following sentence.
 
 \begin{itemize}
@@ -344,153 +347,139 @@ We know about a given durative event that is an event of some state holding for 
 
 Both of these sentences refer to some state holding for a \textit{specific} or \textit{unspecific} but \textit{bounded} amount of time. We can package this information into a durative event.
 
-\begin{defn}
-	$\textsc{po} : \textsc{Temp} \to \mathcal{EC}^d$
-\end{defn}
+$$\textsc{po}\footnote{Galton makes this particular choice of name for the operator to allude to the Russian prefix po- which has
+		the same aspectual effect as the above-introduced \cite{Galton1984-GALTLO}} : \sigma_\mathcal{S} \to \sigma_\mathcal{EC}$$
 
 The $\textsc{po}$ takes a state and returns the event category of that state, maximally holding for a while.
+$$\mathfrak{po} : \textsc{Temp} \to \mathcal{EC}_d$$
 
-\begin{defn}
-	\textlbrackdbl $\textsc{po}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{po}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
-\end{defn}
+\[
+	\textlbrackdbl\textlbrackdbl \textsc{po}(\tau) \textrbrackdbl \textrbrackdbl ^{\mathcal{V}} =
+	\mathfrak{po}(\textlbrackdbl \textlbrackdbl\tau\textrbrackdbl\textrbrackdbl^{\mathcal{V}})
+\]
 
-\begin{axiom}\label{ax:po}
-	\begin{equation}
-		\textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) \cdot \mathfrak{c}(\mathfrak{cl}(e_1, e_2), \mathfrak{po}(s)) = \top.
-	\end{equation}
-\end{axiom}
+\begin{equation}\label{ax:po}
+	\prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T} \\ s \in \mathcal{S}}}\textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2) = \mathfrak{c}(\mathfrak{cl}(e_{p_1}, e_{p_2}), \mathfrak{po}(s).
+\end{equation}
 
 Let us introduce the $\textsc{Prog}$ function as a universal grinder for event categories.
-\begin{defn}
-	\begin{equation}
-		\textsc{prog} : \mathcal{EC}^d \to \textsc{Temp}.
-	\end{equation}
-\end{defn}
+\begin{equation}
+	\textsc{prog} : \sigma_\mathcal{EC} \to \sigma_S.
+\end{equation}
 
-\begin{defn}
+$$\mathfrak{prog} : \mathcal{EC}_d \to \textsc{Temp}$$
+\begin{center}
 	\textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
 	= $\mathfrak{prog}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
-\end{defn}
+\end{center}
 
 The $\textsc{Prog}$ function takes an event category and returns the state that holds when that event category is in progress.
-\begin{axiom}\label{ax:prog}
-	\begin{equation}
-		[
-			\textsc{OCpair}(e_1, e_2, s, t_1, t_2, t_3, t_4) \cdot \mathfrak{c}(\mathfrak{cl} (e_1, e_2), ec_d)
-		] \leq  \mathfrak{h}(\mathfrak{prog}(ec_d), t_3, t_4)
-	\end{equation}
-\end{axiom}
+\begin{equation}\label{ax:prog}
+	\prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T}\\ s \in \mathcal{S} \\ ec_d \in \mathcal{EC}_d}}
+	[
+	\textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2 \cdot \mathfrak{c}(\mathfrak{cl} (e_{p_1}, e_{p2}), ec_d)
+	] \leq  \mathfrak{h}(\mathfrak{prog}(ec_d), t_1, t_1)
+\end{equation}
 
-The Axiom~\ref{ax:prog} requires the progressive state to hold over the interior of an event; it is silent, not
+~\ref{ax:prog} requires the progressive state to hold over the interior of an event; it is silent, not
 only about the boundaries but also the exterior of the event. The domain of $\textsc{Prog}$ is the event categories, not the events.
 Two distinct events $e_{d1}, e_{d2}$ belonging to the same category $ec_d$ ay overlap in time, giving rise to a continuous
 stretch of time; for example, suppose that \textit{Walking} is a durative event category and that I walked from 10:00 to 11:00 and
 my friend walked from 10:30 to 11:30. The state $\textsc{Prog}(\textit{Walking})$ holds over the entire stretch of time from 10:00 to 11:30.
 
-\section{Telicity}
-An event is \textit{telic} if it has a built-in \textit{definite} ending state, otherwise it is \textit{atelic}.\footnote{Vendler has a similar notion of telicity, he defines  this ending state as \textit{climax} \cite{vendler1957verbs}.}
-For example, the following sentences are examples of telic and atelic events, respectively.
+% \section{Telicity}
+% An event is \textit{telic} if it has a built-in \textit{definite} ending state, otherwise it is \textit{atelic}.\footnote{Vendler has a similar notion of telicity, he defines  this ending state as \textit{climax} \cite{vendler1957verbs}.}
+% For example, the following sentences are examples of telic and atelic events, respectively.
 
-\begin{itemize}
-	\item He drew.
-	\item He drew a circle.
-\end{itemize}
+% \begin{itemize}
+% 	\item He drew.
+% 	\item He drew a circle.
+% \end{itemize}
 
-\subsection{Completion}
-Consider the following scenario, in the middle of the event of drawing a circle, the agent stops drawing. The event of drawing a circle is not completed.
-The event of drawing a circle is completed only when the agent stops drawing and the circle is drawn. We can define the completion of an event as follows.
-\begin{defn}
-	\begin{equation}
-		\textsc{complete} : \mathcal{ET} \to \textsc{Perm}\footnote{Although there could be incomplete events, once complete, an event is always complete.}
-	\end{equation}
-\end{defn}
+% \subsection{Completion}
+% Consider the following scenario, in the middle of the event of drawing a circle, the agent stops drawing. The event of drawing a circle is not completed.
+% The event of drawing a circle is completed only when the agent stops drawing and the circle is drawn. We can define the completion of an event as follows.
+% \begin{equation}
+% 	\textsc{complete} : \sigma_\mathcal{ET} \to \sigma_S
+% \end{equation}
+% $$\mathfrak{complete} : \mathcal{ET} \to \textsc{Prem}\footnote{Although there could be incomplete events, once complete, an event is always complete.}$$
+% \begin{center}
+% 	\textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+% 	= $\mathfrak{complete}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+% \end{center}
 
-\begin{defn}
-	\textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-	= $\mathfrak{complete}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
-\end{defn}
+% An event cannot be completed unless it have ocurred.
 
-An event cannot be completed unless it have ocurred.
+% \begin{equation}
+% 	\mathfrak{h}(\mathfrak{complete}(e), t_1, t_2) \leq \sum_{t_3, t_4 \in \mathcal{T}}[\mathfrak{o}(e, t_3, t_4) \cdot (t_3 < t_2)]
+% \end{equation}
 
-\begin{axiom}
-	\begin{equation}
-		\mathfrak{h}(\mathfrak{complete}(e), t_1, t_2) \leq \sum_{t_3, t_4 \in \mathcal{T}}[\mathfrak{o}(e, t_3, t_4) \cdot (t_3 < t_2)]
-	\end{equation}
-\end{axiom}
+% \subsection{Events Unfolding}
+% We usually comprehend events before they occur, For example, planning to work on my bachelor thesis,
+% I think of the details of the project; what topic to choose, whom prof to ask for supervision, etc.
+% I have a mental image of the event of working on my bachelor thesis awaiting to be ocurred.
+% As time passes, I start working on my bachelor thesis, and the event of working on my bachelor thesis starts unfolding.
 
-\subsection{Events Unfolding}
-We usually comprehend events before they occur, For example, planning to work on my bachelor thesis,
-I think of the details of the project; what topic to choose, whom prof to ask for supervision, etc.
-I have a mental image of the event of working on my bachelor thesis awaiting to be ocurred.
-As time passes, I start working on my bachelor thesis, and the event of working on my bachelor thesis starts unfolding.
+% What then is a state that characterizes the interior of the whole event? One possible candidate is the progressive state associated with the working-on-bachelor-thesis event category.
+% Although this state holds throughout the period of the project, it does not exactly capture what I have in mind during any particular project.
+% For the particular bachelor thesis project I worked on, there is a unique state that I got into as I started my project, a state that held throughout the whole event and that never held before, nor will it hold after, the event.
 
-What then is a state that characterizes the interior of the whole event? One possible candidate is the progressive state associated with the working-on-bachelor-thesis event category.
-Although this state holds throughout the period of the project, it does not exactly capture what I have in mind during any particular project.
-For the particular bachelor thesis project I worked on, there is a unique state that I got into as I started my project, a state that held throughout the whole event and that never held before, nor will it hold after, the event.
+% Formally, there's a \textit{ono-to-one} mapping from durative to their \textit{interiors}.
+% \begin{equation}
+% 	\textsc{Int} : \sigma_\mathcal{ET} \to \sigma_\mathcal{S}
+% \end{equation}
 
-Formally, there's a \textit{ono-to-one} mapping from durative to their \textit{interiors}.
-\begin{defn}
-	\begin{equation}
-		\textsc{Int} : \mathcal{E}^{d} \to \textsc{Temp}
-	\end{equation}
-\end{defn}
+% $$\mathfrak{int} : \mathcal{ET}_{d} \to \textsc{Temp}$$
+% \begin{center}
+% 	\textlbrackdbl $\textsc{Int}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
+% 	= $\mathfrak{int}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+% \end{center}
 
-\begin{defn}
-	\textlbrackdbl $\textsc{Int}(\tau)$\textrbrackdbl$^{\mathcal{V}}$
-	= $\mathfrak{int}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
-\end{defn}
+% The following property establishes a basic relation between an event and the state $\mathfrak{int}(s)$
+% \begin{equation}\label{ax:int}
+% 	\prod_{e \in \mathcal{ET}}\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top.
+% \end{equation}
 
-The following axiom establishes a basic relation between an event and the state $\mathfrak{int}(s)$
-\begin{axiom}\label{ax:int}
-	\begin{equation}
-		\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top.
-	\end{equation}
-\end{axiom}
+% Given~\ref{ax:int}(with~\ref{ax:occurs_once},~\ref{ax:onset_cessation_pair}, and~\ref{ax:po} and the fact that $\mathfrak{cl}$ is onto), we can conclude that
+% whenever a durative event $e_d$ occurs, the state $\mathfrak{int}(e_d)$ fills its interior.
 
-Given Axiom~\ref{ax:int}(with Axiom~\ref{ax:occurs_once}, Axiom~\ref{ax:onset_cessation_pair}, and Axiom~\ref{ax:po} and the fact that $\mathfrak{clos}$ is onto), we can conclude that
-whenever a durative event $e_d$ occurs, the state $\mathfrak{int}(e_d)$ fills its interior.
+% An important property of the interior state is that it is, if they hold, they hold for only a bounded period of time.
 
-An important property of the interior state is that it is, if they hold, they hold for only a bounded period of time.
+% \begin{equation}\label{ax:int_bounded}
+% 	\begin{gathered}
+% 		\prod_{e_d \in \mathcal{E}^{d}} (\sum_{\substack{t_1, t_2 \in \mathcal{T} \\ e_{p1} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p1}, \uparrow \mathfrak{int}(e_d))
+% 		\cdot \mathfrak{o}(e_{p1}, t_1, t_2))] = \\
+% 		\sum_{\substack{t_3, t_4 \in \mathcal{T} \\ e_{p2} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p2}, \downarrow \mathfrak{int}(e_d))
+% 			\cdot \mathfrak{o}(e_{p2}, t_3, t_4))])
+% 	\end{gathered}
+% \end{equation}
 
-\begin{axiom}\label{ax:int_bounded}
-	\begin{equation}
-		\begin{gathered}
-			\prod_{e_d \in \mathcal{E}^{d}} (\sum_{\substack{t_1, t_2 \in \mathcal{T} \\ e_{p1} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p1}, \uparrow \mathfrak{int}(e_d))
-			\cdot \mathfrak{o}(e_{p1}, t_1, t_2))] \cdot \\
-			\sum_{\substack{t_3, t_4 \in \mathcal{T} \\ e_{p2} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p2}, \downarrow \mathfrak{int}(e_d))
-				\cdot \mathfrak{o}(e_{p2}, t_3, t_4))]) = \top.
-		\end{gathered}
-	\end{equation}
-\end{axiom}
+% Another important thing to add is that the interior states only hold once.
 
-Another important thing to add is that the interior states only hold once.
+% \begin{equation}\label{ax:int_once}
+% 	\begin{gathered}
+% 		\prod_{\substack{e_d, e_{d_1}, e_{d_2} \in \mathcal{ET}_d \\ t_1, t_2, t_3, t_4 \in \mathcal{T}}}
+% 		\mathfrak{c}(e_{d_1}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot \mathfrak{c}(e_{d_2}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot \\
+% 		\mathfrak{o}(e_{d_1}, t_1, t_2) \cdot \mathfrak{o}(e_{d_2}, t_3, t_4) = \bot \quad \text{if} \quad e_{d_1} \neq e_{d_2}.
+% 	\end{gathered}
+% \end{equation}
 
-\begin{axiom}\label{ax:int_once}
-	\begin{equation}
-		\begin{gathered}
-			\mathfrak{c}(e_{d1}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot \mathfrak{c}(e_{d2}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot \\
-			\mathfrak{o}(e_{d1}, t_1, t_2) \cdot \mathfrak{o}(e_{d2}, t_3, t_4) = \bot \quad \text{if} \quad e_{d1} \neq e_{d2}.
-		\end{gathered}
-	\end{equation}
-\end{axiom}
+% Over any interval, if the state $\mathfrak{int}(e_d)$ holds, then the progressive state associated with the event category of $e_d$ holds.
 
-Over any interval, if the state $\mathfrak{int}(e_d)$ holds, then the progressive state associated with the event category of $e_d$ holds.
+% \begin{equation}\label{ax:int_progressive}
+% 	\begin{gathered}
+% 		\prod_{\substack{e_d \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T} \\ ec_d \in \mathcal{EC}_d}}
+% 		\mathfrak{c}(e_d, ec_d) \cdot \mathfrak{h}(\mathfrak{int}(e_d), t_1, t_2) \leq \\
+% 		\mathfrak{h}(\mathfrak{prog}(ec_d), t_1, t_2)
+% 	\end{gathered}
+% \end{equation}
 
-\begin{axiom}\label{ax:int_progressive}
-	\begin{equation}
-		\begin{gathered}
-			\mathfrak{c}(e_d, ec_d) \cdot \mathfrak{h}(\mathfrak{int}(e_d), t_1, t_2) \leq \\
-			\mathfrak{h}(\mathfrak{prog}(ec_d), t_1, t_2)
-		\end{gathered}
-	\end{equation}
-\end{axiom}
+% The following property expresses an important relation between an event $e_d$ and temporal closures of $\mathfrak{int}(e_d)$.
 
-The following axiom expresses an important relation between an event $e_d$ and temporal closures of $\mathfrak{int}(e_d)$.
-
-\begin{axiom}
-	\begin{equation}
-		\begin{gathered}
-			\mathfrak{o}(\mathfrak{clos}(e_1, e_2), t_1. t_2) \cdot \textsc{OCpair}(e_1, e_2, \mathfrak{int}(e_d), t_1, t_2, t_3, t_4) \leq \\
-		\end{gathered}
-	\end{equation}
-\end{axiom}
+% \begin{equation}
+% 	\begin{gathered}
+% 		\prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T} \\ e_d \in \mathcal{ET}_d}}
+% 		\mathfrak{o}(\mathfrak{clos}(e_{p_1}, e_{p_2}), t_1. t_2) \cdot \textsc{OCpair}(e_{p_1}, e_{p_2}, \mathfrak{int}(e_d), t_1, t_2) \leq \\
+% 		\sum_{t^\prime_1, t^\prime_2 \in \mathcal{T}}[\mathfrak{h}(\mathfrak{complete}(e_d), t^\prime_1, t^\prime_2)]
+% 	\end{gathered}
+% \end{equation}

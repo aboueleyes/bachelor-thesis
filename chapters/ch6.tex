@@ -1,0 +1,229 @@
+\chapter{$Log_A$T}
+
+$Log_A$T is a class of \textit{many-sorted} languages that share a common core of logical symbols and differ in a signature of non-logical symbols. In what follows, we identify a sort $\sigma$ with
+the set of sort $\sigma$ symbols.
+
+A $Log_A$T language is a set of terms partitioned into three base syntactic types, $\sigma_S , \sigma_T,$
+$\sigma_{\mathcal{ET}}, \sigma_{\mathcal{EC}}$
+and $\sigma_I$. Intuitively,
+\begin{itemize}
+	\item $\sigma_S$ is the set of terms denoting states
+	\item $\sigma_T$ is the set of terms denoting time points
+	\item $\sigma_{ET}$ is the set of terms denoting event tokens.
+	\item $\sigma_{EC}$ is the set of terms denoting event categories.
+	\item $\sigma_I$ is the set of terms denoting anything else.
+\end{itemize}
+
+\section{Syntax}
+
+An alphabet for $Log_A$T consists of two sets of symbols: syncategorematic punctuation symbols and denoting symbols from a set $\sigma$ of syntactic types. The set $\sigma$ includes four types, including one for function symbols that produce a term of a particular type based on a single argument of a base type.
+
+$Log_A$T is a first-order language because the first argument of function symbols is restricted to base types. A $Log_A$T alphabet is a union of four sets, including a signature set of symbols with designated syntactic types, a set of variables, a set of syncategorematic symbols, and a set of logical symbols.
+
+The variables set is countably infinite and consists of variables with designated types from $\sigma$. The syncategorematic symbols set includes punctuation symbols such as brackets and parentheses and the universal quantifier symbol $\forall$. The logical symbols set is the union of several sets of logical symbols.
+
+\begin{enumerate}
+	\item $\neg \in \sigma_S \to \sigma_S$
+	\item $\{\land, \lor \} \subseteq \sigma_S \to \sigma_S \to \sigma_S$
+	\item $\textsc{HoldsAt} \in \sigma_S \to \sigma_T \to \sigma_S$
+	\item $\prec \in \sigma_T \to \sigma_T \to \sigma_S$
+	\item $\textsc{Occurs} \in \sigma_{ET} \to \sigma_T \to \sigma_T \to \sigma_S$
+	\item $\textsc{Cat} \in \sigma_{ET} \to \sigma_{EC} \to \sigma_S$
+	\item $\textsc{Onset} \in \sigma_S \to \sigma_{EC}$
+	\item $\textsc{Cease} \in \sigma_S \to \sigma_{EC}$
+	\item $\textsc{Clos} \in \sigma_{ET} \to \sigma_{ET} \to \sigma_{ET}$
+	\item $\textsc{Po} \in \sigma_S \to \sigma_{EC}$
+	\item $\textsc{Prog} \in \sigma_{EC} \to \sigma_S$
+	\item $\textsc{Complete} \in \sigma_{ET} \to \sigma_S$
+	      \item$\textsc{Int} \in \sigma_{ET} \to \sigma_S$
+\end{enumerate}
+
+A $Log_A$T language with signature $\Omega$ is denoted by $L_{\Omega}$ It
+is the smallest set of terms formed according to the following
+rules, where $\tau$ and $\tau_i (i \in \mathbb{N})$ are terms in $L_{\Omega}$
+
+\begin{itemize}
+	\item $\Xi \subset L_{\Omega}$
+	\item $c \in L_{\Omega}$, where $c \in \Omega$ is a constant symbol.
+	\item $f(\tau_1, \tau_2, \dots, \tau_n) \in L_{\Omega}$, where $f \in \Omega$ is of type
+	      $\varsigma_1 \dots \to \varsigma_n \to \varsigma  (n > 0)$ and $\tau_i$ is of type of $\varsigma_i$.
+	\item $\neg \tau \in L_{\Omega}$, where $\tau \in \sigma_S$.
+	\item $(\tau_1 \otimes \tau_2) \in L_{\Omega}$, where $\otimes \in \{\land, \lor\}$ and $\tau_1, \tau_2 \in \sigma_S$.
+	\item $\forall x(\tau) \in L_{\Omega}$, where $x \in \Xi$ and $\tau \in \sigma_S$.
+	\item $\textsc{HoldsAt}(\tau_1, \tau_2) \in L_{\Omega}$, where $\tau_1 \in \sigma_S$ and $\tau_2 \in \sigma_T$.
+	\item $\prec(\tau_1, \tau_2) \in L_{\Omega}$, where $\tau_1, \tau_2 \in \sigma_T$.
+	\item $\textsc{Occurs}(\tau_1, \tau_2, \tau_3) \in L_{\Omega}$ where $\tau_2, \tau_3 \in \sigma_T$  and $\tau_1 \in \sigma_{ET}$.
+	\item $\textsc{Cat}(\tau_1, \tau_2) \in L_{\Omega}$ where $\tau_1 \in \sigma_{ET}$ and $\tau_2 \in \sigma_{EC}$.
+	\item $\textsc{Onset}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_S$.
+	\item $\textsc{Cease}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_S$.
+	\item $\textsc{Clos}(\tau_1, \tau_2) \in L_{\Omega}$ where $\tau_1, \tau_2 \in \sigma_{ET}$.
+	\item $\textsc{Po}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_S$.
+	\item $\textsc{Prog}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_{EC}$.
+	      % \item $\textsc{Complete}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_{ET}$.
+	      % \item $\textsc{Int}(\tau) \in L_{\Omega}$ where $\tau \in \sigma_{ET}$.
+\end{itemize}
+
+
+\section{Semantics}
+
+\begin{defn} $A  \ Log_AT$ structure is a \textit{quadruple} $\mathfrak{S}$
+	= $\langle \mathcal{D}, \mathfrak{A}, \mathfrak{h},\mathfrak{E}, < \rangle$ where
+\end{defn}
+
+\begin{itemize}
+	\item $\mathcal{D}$,  the domain of discourse, is a set with four disjoint, non-
+	      empty, countable subsets $\mathcal{S} , \mathcal{ET}, \mathcal{EC},  \mathcal{T}$.
+	      \begin{itemize}
+		      \item $\mathcal{ET}$ is a set partitioned by two countable subsets $\mathcal{ET}_d$ and $\mathcal{ET}_p$.
+		      \item $\mathcal{EC}$ is a set partitioned by two countable subsets $\mathcal{EC}_d$ and $\mathcal{EC}_p$.
+	      \end{itemize}
+	\item $\mathfrak{A} = \langle \mathcal{S}, +, \cdot, -, \bot, \top \rangle $ is a
+	      complete Boolean algebra.
+	\item $\mathfrak{h} : \mathcal{S} \times \mathcal{T} \to \mathcal{S}$ satisfies the following properties,
+	      for every $\hat{\mathcal{S}} \subseteq \mathcal{S}, s \in \mathcal{S}$ and $t, t_1, t_2 \in \mathcal{T}$:
+	      \begin{enumerate}
+		      \item $\mathfrak{h}(-s, t)= -  \mathfrak{h}(s, t)$.
+		      \item $\displaystyle \mathfrak{h}(\prod_{s\in \hat{\mathcal{S}}} s, t) = \prod_{s\in \hat{\mathcal{S}}} \mathfrak{h}(s, t)$.
+		      \item $\mathfrak{h}(\mathfrak{h}(s, t_1), t_2) = \mathfrak{h}(s, t_1)$.
+		      \item If $\displaystyle \prod_{t \in \mathcal{T}} \mathfrak{h}(s, t)= \top, \ then \ s = \top$.
+	      \end{enumerate}
+	\item $< : \mathcal{T} \times \mathcal{T} \to \mathcal{S}$ defines an irreflexive linear order on $\mathcal{T}$ which is serial in both
+	      directors that is, $<$ is constrained as follows, for every distinct $t_1, t_2, t_3 \in \mathcal{T}$:
+	      \begin{enumerate}
+		      \item $t_1 < t_2 = - (t_2 < t_1)$.
+		      \item $[(t_1 < t_2) \cdot (t_2 < t_3)] + t_1 < t_3 = t_1 < t_3$.
+		      \item $t_1 < t_1 = \bot$.
+		      \item $\sum_{t \in \mathcal{T}} t < t_1 = \sum_{t \in \mathcal{T}} t_1 < t = \top$.
+	      \end{enumerate}
+	\item For $t_1, t_2, t_3 \in \mathcal{T}, \mathfrak{h}(t_1 < t_2, t_3) = t_1 < t_2$.
+	\item $\mathfrak{E}$ is a n-tuple of event operators.
+	      \begin{itemize}
+		      \item $\mathfrak{o} : \mathcal{ET} \times \mathcal{T} \times \mathcal{T} \to \textsc{Eter}$ satisfies the following:
+		            \begin{enumerate}
+			            \item $\displaystyle \prod_{\substack{e \in \mathcal{ET} \\ t_1, t_2, t_3, t_4 \in \mathcal{T}}} \mathfrak{o}(e, t_1, t_2) \cdot \mathfrak{o}(e, t_3, t_4) = \bot  \ if \ t_1 \neq t_3 \ or \  t_2 \neq t_4$
+			            \item $\displaystyle\prod_{\substack{e_d \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(e_d, t_1, t_2) \cdot (t_2 < t_1) = \bot$
+			            \item $\displaystyle\prod_{\substack{e_p \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(e_p, t_1, t_2) \cdot (t_2 = t_1) = \bot$. for every $t_1 \neq t_2$
+		            \end{enumerate}
+		            \item$\mathfrak{c} : \mathcal{ET} \times \mathcal{EC}\to \textsc{Temp}$ where
+		            \begin{enumerate}
+			            \item $\mathfrak{c} : \mathcal{ET}_p \times \mathcal{EC}_p \to \textsc{Temp}$
+			            \item $\mathfrak{c} : \mathcal{ET}_d \times \mathcal{EC}_d \to \textsc{Temp}$
+		            \end{enumerate}
+		      \item $\uparrow :  \textsc{Temp} \cup \textsc{Perm} \to \mathcal{EC}_p$
+		      \item $\downarrow :  \textsc{Temp} \cup \textsc{Co-Perm} \to \mathcal{EC}_p$ where
+		            \begin{enumerate}
+			            \item $\displaystyle\prod_{\substack{e_p \in \mathcal{ET}_p \\ s \in \mathcal{S}}} \mathfrak{c}(e_p, \uparrow s) = (\mathfrak{c}(e_p, \downarrow(- s)))$.
+			            \item $\displaystyle\prod_{\substack{e_p \in \mathcal{ET}_p \\ s \in \mathcal{S}}}\mathfrak{c}(e_p, \downarrow s) = (\mathfrak{c}(e_p, \uparrow(- s)))$.
+			            \item $\displaystyle \prod_{\substack{e_p \in \mathcal{ET}_p \\ s \in \mathcal{S} \\ t_1 \in \mathcal{T}}} \mathfrak{o}(e_p, t_1, t_1) \cdot \mathfrak{c}(e_p, \uparrow s) \cdot
+				                  \sum_{t_3 \in \mathcal{T}}\prod_{t_2 \in \mathcal{T}} (t_1 < t_2)  \leq \mathfrak{h}(s, t_2, t_3)$
+			            \item $\displaystyle
+				                  \prod_{\substack{s \in \mathcal{S} \\ t_1, t_2, t_3 \in \mathcal{T}}}- \mathfrak{h}(s, t_1, t_2) \cdot \mathfrak{h}(s, t_2, t_3) \leq
+				                  \sum_{e_p \in \mathcal{ET}_p} \mathfrak{o}(e_p, t_2, t_2) \cdot \mathfrak{c}(e_p, \uparrow s)$.
+		            \end{enumerate}
+		      \item $\mathfrak{cl} : \mathcal{ET}_p \times \mathcal{ET}_p \to^{\text{Onto}} \mathcal{ET}_d$ satisfies the following.
+		            $$\prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T}}} \mathfrak{o}(\mathfrak{cl}(e_{p1}, e_{p2}), t_1, t_2) =
+			            \sum_{\substack{s \in \mathcal{S}}}[ \textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2]$$
+		      \item $\mathfrak{po} : \textsc{Temp} \to \mathcal{EC}_d$ satisfies the following.
+		            $$
+			            \prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T} \\ s \in \mathcal{S}}}\textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2) = \mathfrak{c}(\mathfrak{cl}(e_{p_1}, e_{p_2}), \mathfrak{po}(s)).$$
+		      \item $\mathfrak{prog} : \mathcal{EC}_d \to \textsc{Temp}$ satisfies the following.
+		            $$
+			            \prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T}\\ s \in \mathcal{S} \\ ec_d \in \mathcal{EC}_d}}
+			            [
+			            \textsc{OCpair}(e_{p_1}, e_{p_2}, s, t_1, t_2 \cdot \mathfrak{c}(\mathfrak{cl} (e_{p_1}, e_{p2}), ec_d)
+			            ] \leq  \mathfrak{h}(\mathfrak{prog}(ec_d), t_1, t_1)$$
+		            % \end{enumerate}
+		            %   \item $\mathfrak{complete} : \mathcal{ET} \to \textsc{Prem}$ satisfies the following
+		            %         \begin{enumerate}
+		            %             \item $\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top$.
+		            %         \end{enumerate}
+		            %   \item $\mathfrak{int} : \mathcal{ET} \to \textsc{Temp}$ satisfies the following
+		            %         \begin{enumerate}
+		            %             \item  $\displaystyle
+		            % 	                  \prod_{e \in \mathcal{ET}}\mathfrak{c}(e, \mathfrak{po}(\mathfrak{int}(e))) = \top$.
+		            %             \item $
+		            % 	                  \displaystyle
+		            % 	                  \prod_{e_d \in \mathcal{E}^{d}} (\sum_{\substack{t_1, t_2 \in \mathcal{T} \\ e_{p1} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p1}, \uparrow \mathfrak{int}(e_d))
+		            % 	                  \cdot \mathfrak{o}(e_{p1}, t_1, t_2))] = \\
+		            % 	                  \sum_{\substack{t_3, t_4 \in \mathcal{T} \\ e_{p2} \in \mathcal{E}^p}}[\mathfrak{c}(e_{p2}, \downarrow \mathfrak{int}(e_d))
+		            % 		                  \cdot \mathfrak{o}(e_{p2}, t_3, t_4))])
+		            %                   $
+		            %             \item $\displaystyle
+		            % 	                  \prod_{\substack{e_d, e_{d_1}, e_{d_2} \in \mathcal{ET}_d \\ t_1, t_2, t_3, t_4 \in \mathcal{T}}}
+		            % 	                  \mathfrak{c}(e_{d_1}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot \mathfrak{c}(e_{d_2}, \mathfrak{po}(\mathfrak{int}(e_d))) \cdot
+		            % 	                  \mathfrak{o}(e_{d_1}, t_1, t_2) \cdot \mathfrak{o}(e_{d_2}, t_3, t_4) = \bot \quad \text{if} \quad e_{d_1} \neq e_{d_2}.
+		            %                   $
+		            %             \item $\displaystyle
+		            % 	                  \prod_{\substack{e_d \in \mathcal{ET}_d \\ t_1, t_2 \in \mathcal{T} \\ ec_d \in \mathcal{EC}_d}}
+		            % 	                  \mathfrak{c}(e_d, ec_d) \cdot \mathfrak{h}(\mathfrak{int}(e_d), t_1, t_2) \leq
+		            % 	                  \mathfrak{h}(\mathfrak{prog}(ec_d), t_1, t_2)
+		            %                   $
+		            %             \item $\displaystyle
+		            % 	                  \prod_{\substack{e_{p_1}, e_{p_2} \in \mathcal{ET}_p \\ t_1, t_2 \in \mathcal{T} \\ e_d \in \mathcal{ET}_d}}
+		            % 	                  \mathfrak{o}(\mathfrak{clos}(e_{p_1}, e_{p_2}), t_1. t_2) \cdot \textsc{OCpair}(e_{p_1}, e_{p_2}, \mathfrak{int}(e_d), t_1, t_2) \leq \\
+		            % 	                  \sum_{t^\prime_1, t^\prime_2 \in \mathcal{T}}[\mathfrak{h}(\mathfrak{complete}(e_d), t^\prime_1, t^\prime_2)]
+		            %                   $
+		            %         \end{enumerate}
+	      \end{itemize}
+\end{itemize}
+\subsection{Macros}
+\begin{itemize}
+	\item \[\textsc{NoOcc}(ec, t_1, t_2) =_{\text{def}}\]
+	      \[ -\sum_{\substack{{e \in \mathcal{ET}} \\ t_3, t_4 \in \mathcal{T}}}
+		      [\mathfrak{c}(e, ec) \cdot (t_1 < t_3) \cdot (t_4 < t_2) \cdot \mathfrak{o}(e, t_3, t_4)]\]
+	\item \[
+		      \textsc{OCpair}(e_1, e_2, s, t_1, t_2) =_{\text{def}}
+	      \]
+	      \[
+		      \mathfrak{c}(e_1, \uparrow s) \cdot \mathfrak{c}(e_2, \downarrow s) \cdot \mathfrak{o}(e_1, t_1, t_1) \cdot \mathfrak{o}(e_2, t_2, t_2) \cdot
+		      (t_1 < t_2) \cdot \textsc{NoOcc}(\downarrow s, t_1, t_2)
+	      \]
+\end{itemize}
+\begin{defn}
+	A \textit{valuation} $\mathcal{V}$ for a $Log_A$T language $L_{\Omega}$ is a triple $\langle \mathfrak{S}, \mathcal{V}_{\Omega}, \mathcal{V}_{\Xi} \rangle$ where
+\end{defn}
+\begin{itemize}
+	\item $\mathfrak{S} = \langle \mathcal{D}, \mathfrak{A}, \mathfrak{h},\mathfrak{E}, < \rangle$ is a $Log_A$T structure.
+	\item $\mathcal{V}_{\Omega}$ is a function that assigns to each constant of sort $\varsigma$ in $\Omega$ an element of $\mathcal{D}_{\varsigma}$.
+	      and to each function symbol $f \in \Omega$ of sort $\varsigma_1 \to \cdots \to \varsigma_n \to \varsigma$ an
+	      n-adic function $\mathcal{V}_{\Omega}(f) :  \times_{i=1} \mathcal{D}_{\varsigma_i} \to \mathcal{D}_{\varsigma}$; and
+	\item $\mathcal{V}_{\Xi} : \Xi \to \mathcal{D}$ is a function (called the \textit{variable assignment}) where
+	      for every $x \in \Xi$ if $s \in \mathcal{S}$ then $v_{\Xi} \in \mathcal{D}_{\varsigma}$.
+\end{itemize}
+
+for a valuation $\mathcal{V} = \langle \mathfrak{S}, \mathcal{V}_{\Omega}, \mathcal{V}_{\Xi} \rangle$ with
+$x \in \Xi$ of sort $\varsigma$ and $a \in \mathcal{D}_{\varsigma}$, $\mathcal{V}[x/a] = \langle \mathfrak{S}, \mathcal{V}_{\Omega}, \mathcal{V}_{\Xi}[a/x] \rangle$
+where $\mathcal{V}_{\Xi}[a/x](x) = a$, and $\mathcal{V}_{\Xi}[a/x](y) = \mathcal{V}_{\Xi}(y)$ for $y \in \Xi$ with $y \neq x$.
+
+\begin{defn}
+	Let $L_{\Omega}$ be a $Log_A$T language and $\mathcal{V}$ be a valuation for $L_{\Omega}$. An interpretation of the terms of $L_{\Omega}$ given by a function
+	\textlbrackdbl .\textrbrackdbl$^{\mathcal{V}}$:
+\end{defn}
+\begin{itemize}
+	\item $\llbracket x \rrbracket^{\mathcal{V}} = \mathcal{V}_{\Xi}(x)$ for $x \in \Xi$ a variable symbol.
+	\item $\llbracket c \rrbracket^{\mathcal{V}} = \mathcal{V}_{\Omega}(c)$ for $c \in \Omega$ a constant symbol.
+	\item $\llbracket f(\tau_1, \cdots, \tau_n) \rrbracket^{\mathcal{V}} = \mathcal{V}_{\Omega}(f)(\llbracket \tau_1 \rrbracket^{\mathcal{V}}, \cdots, \llbracket\tau_n \rrbracket^{\mathcal{V}})$,
+	      for an n-adic $(n \geq 1)$ function symbol $f \in \Omega$
+	\item $\llbracket \tau_1 \land \tau_2 \rrbracket^{\mathcal{V}} = \llbracket \tau_1 \rrbracket^{\mathcal{V}} \cdot \llbracket \tau_2 \rrbracket^{\mathcal{V}}$.
+	\item $\llbracket \tau_1 \lor \tau_2 \rrbracket^{\mathcal{V}} = \llbracket \tau_1 \rrbracket^{\mathcal{V}} + \llbracket \tau_2 \rrbracket^{\mathcal{V}}$.
+	\item $\llbracket \neg \tau \rrbracket^{\mathcal{V}} = - \llbracket \tau \rrbracket^{\mathcal{V}}$.
+	\item $\llbracket \forall x(\tau) \rrbracket^{\mathcal{V}} = \prod_{a \in \mathcal{D}_{\varsigma}} \llbracket \tau \rrbracket^{\mathcal{V}[a/x]}$. where $x$ is of sort $\varsigma$
+	\item $\llbracket \textsc{HoldsAt}(\tau_1, \tau_2)\rrbracket^{\mathcal{V}} = \mathfrak{h}(\llbracket \tau_1 \rrbracket^{\mathcal{V}}, \llbracket \tau_2 \rrbracket^{\mathcal{V}})$.
+	\item $\llbracket (\tau_1 \prec \tau_2) \rrbracket^{\mathcal{V}} = \llbracket \tau_1 \rrbracket^{\mathcal{V}} < \llbracket \tau_2 \rrbracket^{\mathcal{V}}$.
+	\item \textlbrackdbl $\textsc{Occurs}(\tau_1, \tau_2, \tau_3)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{o}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl$\tau_3$\textrbrackdbl$^{\mathcal{V}}$)
+	\item \textlbrackdbl $\textsc{Cat}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{c}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+	\item \textlbrackdbl $\textsc{Onset}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\uparrow$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$
+	\item \textlbrackdbl $\textsc{Cease}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\downarrow$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$
+	\item \textlbrackdbl $\textsc{Clos}(\tau_1, \tau_2)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{cl}$(\textlbrackdbl $\tau_1$\textrbrackdbl$^{\mathcal{V}}$, \textlbrackdbl $\tau_2$\textrbrackdbl$^{\mathcal{V}}$)
+	\item \textlbrackdbl $\textsc{Po}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{po}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+	\item \textlbrackdbl $\textsc{Prog}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{prog}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+	      % \item \textlbrackdbl $\textsc{Complete}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{c}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+	      % \item \textlbrackdbl $\textsc{Int}(\tau)$\textrbrackdbl$^{\mathcal{V}}$ = $\mathfrak{c}$(\textlbrackdbl $\tau$\textrbrackdbl$^{\mathcal{V}}$)
+\end{itemize}
+
+\begin{defn}
+	Let $L_{\Omega}$ be a $Log_A$T language.
+	For every $\phi \in \sigma_S$ and $\Gamma \subseteq \sigma_S, \phi$ is a \textit{logical consequence} of $\Gamma$ (written $\Gamma \models \phi$) if for every $L_{\Omega}$ valuation $\mathcal{V}$,
+	$\displaystyle \prod_{\gamma \in \Gamma} \llbracket \gamma \rrbracket^{\mathcal{V}} \leq \llbracket \phi \rrbracket^{\mathcal{V}}$.
+
+\end{defn}
